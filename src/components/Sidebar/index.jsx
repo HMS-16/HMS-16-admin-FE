@@ -3,7 +3,7 @@ import { FaBars, FaStethoscope, FaUserNurse } from "react-icons/fa";
 import { MdCalendarToday, MdDashboard, MdLogout, MdPerson, MdSettings } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/images/Logo.png";
-import "../../assets/css/Sidebar.css";
+import "./Sidebar.css";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
