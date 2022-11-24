@@ -6,10 +6,9 @@ main {
   padding: 20px;
 }
 .sidebar {
-  background: rgb(245, 129, 62);
+  background: #0e4597;
   color: rgb(255, 255, 255);
   height: 100vh;
-  width: 200px;
   transition: all 0.5s;
 }
 .top_section {
@@ -17,29 +16,25 @@ main {
   align-items: center;
   padding: 20px 15px;
 }
-.logo {
-  font-size: 30px;
-}
 .bars {
-  display: flex;
-  font-size: 25px;
-  margin-left: 50px;
+  font-size: 20px;
+  cursor: pointer;
 }
 .link {
   display: flex;
   color: rgb(255, 255, 255);
-  padding: 10px 15px;
+  padding: 20px 20px;
   gap: 15px;
   transition: all 0.5s;
   text-decoration: none;
 }
 .link:hover {
-  background: rgb(17, 17, 17);
+  background: #608cce;
   color: rgb(255, 255, 255);
   transition: all 0.5s;
 }
 .active {
-  background: rgb(17, 17, 17);
+  background: #608cce;
   color: rgb(255, 255, 255);
 }
 .icon,
