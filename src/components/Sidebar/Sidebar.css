@@ -41,3 +41,6 @@ main {
 .link_text {
   font-size: 20px;
 }
+hr {
+  border-width: 2px !important;
+}

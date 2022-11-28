@@ -1,0 +1,8 @@
+.avatar {
+  width: 150px;
+  clip-path: circle();
+}
+.btn-blue {
+  background-color: #1153b5 !important;
+  color: #fff !important;
+}
