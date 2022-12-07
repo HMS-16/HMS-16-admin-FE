@@ -7,9 +7,18 @@ const initialState = {
   error: null,
 };
 
-export const fetchDoctor = createAsyncThunk("fetch/fetchDoctor", async () => {
+export const getDoctor = createAsyncThunk("fetch/getDoctor", async () => {
   try {
     const response = await APIDoctor.getDoctor();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+export const getDoctorById = createAsyncThunk("fetch/getDoctorById", async (id) => {
+  try {
+    const response = await APIDoctor.getDoctorById(id);
     return response;
   } catch (err) {
     console.log(err);
@@ -21,14 +30,25 @@ const doctorsSlice = createSlice({
   initialState,
   extraReducers(builder) {
     builder
-      .addCase(fetchDoctor.pending, (state, action) => {
+      .addCase(getDoctor.pending, (state, action) => {
         state.status = "loading";
       })
-      .addCase(fetchDoctor.fulfilled, (state, action) => {
+      .addCase(getDoctor.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.data = action.payload;
       })
-      .addCase(fetchDoctor.rejected, (state, action) => {
+      .addCase(getDoctor.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(getDoctorById.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(getDoctorById.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.data = action.payload;
+      })
+      .addCase(getDoctorById.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

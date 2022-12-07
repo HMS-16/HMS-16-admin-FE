@@ -4,19 +4,20 @@ import { MdEdit } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDoctor } from "../../store/features/doctorsSlice";
+import { getDoctor } from "../../store/features/doctorsSlice";
 import DoctorCard from "../../components/DoctorCard";
 import DoctorTable from "../../components/DoctorTable";
-import "./ManageDoctor.css";
+import "./DoctorDashboard.css";
 import "swiper/css";
 
-const ManageDoctor = () => {
+const DoctorDashboard = () => {
   const dispatch = useDispatch();
   const doctor = useSelector((state) => state.doctors);
 
   useEffect(() => {
-    dispatch(fetchDoctor());
+    dispatch(getDoctor());
   }, [dispatch]);
+
   return (
     <>
       <Row>
@@ -33,7 +34,7 @@ const ManageDoctor = () => {
       </Container>
       <Stack direction="horizontal" gap={3} className="d-flex mt-5 justify-content-end">
         <Button variant="blue">+ Create Schedule</Button>
-        <Button variant="blue" className="me-3">
+        <Button variant="outBlue" className="me-3">
           <MdEdit /> Edit Schedule
         </Button>
       </Stack>
@@ -45,4 +46,4 @@ const ManageDoctor = () => {
   );
 };
 
-export default ManageDoctor;
+export default DoctorDashboard;

@@ -10,6 +10,15 @@ const APIDoctor = {
       throw new Error(message);
     }
   },
+  async getDoctorById(id) {
+    try {
+      const response = await config.get(`/doctor/${id}`);
+      return response.data;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
 };
 
 export default APIDoctor;
