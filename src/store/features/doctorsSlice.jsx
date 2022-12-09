@@ -30,7 +30,7 @@ const doctorsSlice = createSlice({
   initialState,
   extraReducers(builder) {
     builder
-      .addCase(getDoctor.pending, (state, action) => {
+      .addCase(getDoctor.pending, (state) => {
         state.status = "loading";
       })
       .addCase(getDoctor.fulfilled, (state, action) => {
@@ -41,7 +41,7 @@ const doctorsSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
-      .addCase(getDoctorById.pending, (state, action) => {
+      .addCase(getDoctorById.pending, (state) => {
         state.status = "loading";
       })
       .addCase(getDoctorById.fulfilled, (state, action) => {
