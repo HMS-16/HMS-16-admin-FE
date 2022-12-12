@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.button-add-patient {
+  display: flex;
+  justify-content: end;
+  background-color: #0e4597 !important;
+  border-style: none !important;
+  width: 170px;
+  height: 40px;
+  padding: 3px 10px 0px 0px !important;
+  margin-top: 20px !important;
+  margin-left: 20px !important;
+  font-weight: 500 !important;
+  font-family: "Nunito", sans-serif;
+}
+
+.button-add-patient:hover {
+  background-color: #d0e0f7 !important;
+  color: black !important;
+}
+
+.button-delete-patient {
+  background-color: red !important;
+  border-style: none !important;
+  font-weight: bold !important;
+  width: 130px;
+  margin-top: 10px;
+  margin-left: 415px;
+  margin-right: 10px;
+  font-family: "Nunito", sans-serif;
+}
+
+.button-delete-patient:hover {
+  background-color: #d0e0f7 !important;
+  color: black !important;
+}
+
+.button-patient {
+  display: flex;
+}
+
+.dataPatient {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #29292926;
+  margin-top: 15px;
+  margin-left: 20px;
+  height: 540px;
+  width: 1270px;
+  padding: 5px 5px;
+}
+
+.css-hyum1k-MuiToolbar-root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-patient {
+  border: 1px solid black;
+  width: 320px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+}

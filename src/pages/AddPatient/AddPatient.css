@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.form-patient-page {
+  height: 100vh;
+  overflow: auto;
+}
+
+label {
+  font-weight: 300;
+  font-size: 13px;
+  font-family: "Nunito", sans-serif;
+}
+
+.add-patient-title {
+  display: flex;
+  justify-content: start;
+  font-weight: 600;
+  line-height: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-top: 15px;
+}
+
+.address-title {
+  display: flex;
+  justify-content: start;
+  font-weight: 600;
+  line-height: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-top: 15px;
+}
+
+.family-contact-title {
+  display: flex;
+  justify-content: start;
+  font-weight: 600;
+  line-height: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-top: 15px;
+}
+
+.patient-title {
+  display: flex;
+  justify-content: start;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-top: 15px;
+}
+
+.button-save-form-patient {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  width: 90px;
+  height: 30px;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.button-save-form-patient:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.button-cancel-form-patient {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  margin-right: 80px;
+  width: 90px;
+  height: 30px;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: white !important;
+  color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.button-cancel-form-patient:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.button-form {
+  display: flex;
+  justify-content: end;
+}
+
+.required-icon {
+  color: #9b1a1a;
+  margin-left: 2px;
+}

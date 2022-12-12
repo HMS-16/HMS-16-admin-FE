@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.topbar {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+
+.topbarWrapper {
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+}
+
+.topbarIconContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.topAvatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.userName {
+  font-weight: bolder;
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
+}
