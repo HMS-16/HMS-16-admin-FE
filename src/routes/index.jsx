@@ -7,6 +7,7 @@ import ManagePatient from "../pages/ManagePatient";
 import Appointment from "../pages/Appointment";
 import DoctorDetail from "../pages/DoctorDetail";
 import PrivateRoute from "./PrivateRoute";
+import AddDoctor from "../pages/AddDoctor";
 
 const Routers = () => {
   return (
@@ -15,8 +16,11 @@ const Routers = () => {
         <Route path="/" element={<PrivateRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="patient" element={<ManagePatient />} />
-          <Route path="doctor" element={<DoctorDashboard />} />
-          <Route path="doctor/:id" element={<DoctorDetail />} />
+          <Route path="doctor">
+            <Route index element={<DoctorDashboard />} />
+            <Route path=":id" element={<DoctorDetail />} />
+            <Route path="add" element={<AddDoctor />} />
+          </Route>
           <Route path="nurse" element={<ManageNurse />} />
           <Route path="appointment" element={<Appointment />} />
         </Route>
