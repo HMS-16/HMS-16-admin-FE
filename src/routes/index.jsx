@@ -10,10 +10,10 @@ import EditDataPatient from "../pages/EditDataPatient";
 import ChangeAppointment from "../pages/ChangeAppointment";
 import PatientDetail from "../pages/PatientDetail";
 import EditPatientDetail from "../pages/EditPatientDetail";
-
-import Appointment from "../pages/Appointment";
+import AppointmentDashboard from "../pages/AppointmentDashboard";
 
 import Sidebar from "../components/Sidebar";
+import CreateAppointment from "../pages/CreateAppointment";
 
 const Routers = () => {
   return (
@@ -26,12 +26,12 @@ const Routers = () => {
           <Route path="/add/patient" element={<AddPatient />} />
           <Route path="/edit/data/patient" element={<EditDataPatient />} />
           <Route path="/change/appointment" element={<ChangeAppointment />} />
+          <Route path="/create/appointment" element={<CreateAppointment />} />
           <Route path="/patient/detail" element={<PatientDetail />} />
           <Route path="/edit/detail/patient" element={<EditPatientDetail />} />
-
+          <Route path="/appointment" element={<AppointmentDashboard />} />
           <Route path="/doctor" element={<ManageDoctor />} />
           <Route path="/nurse" element={<ManageNurse />} />
-          <Route path="/appointment" element={<Appointment />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

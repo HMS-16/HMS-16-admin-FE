@@ -12,6 +12,10 @@ const DataPatient = () => {
     navigate(`/edit/data/patient`);
   };
 
+  const patientDetail = () => {
+    navigate(`/patient/detail`);
+  };
+
   const rows = [
     {
       date: "21/01/2022",
@@ -118,6 +122,7 @@ const DataPatient = () => {
         return (
           <>
             <BsEyeFill
+              onClick={patientDetail}
               className="nav-link"
               style={{
                 color: "#424952",

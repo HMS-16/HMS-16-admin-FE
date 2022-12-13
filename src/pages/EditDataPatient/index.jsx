@@ -15,6 +15,10 @@ const EditDataPatient = () => {
     navigate(`/change/appointment`);
   };
 
+  const patientDashboard = () => {
+    navigate(`/patient`);
+  };
+
   const baseData = {
     fullName: "",
     numberMed: "",
@@ -52,10 +56,6 @@ const EditDataPatient = () => {
     alert(`Edit Patient Successfully`);
   };
 
-  const resetData = () => {
-    setData(baseData);
-  };
-
   return (
     <>
       <div className="form-patient-page">
@@ -75,8 +75,9 @@ const EditDataPatient = () => {
             Appointment
           </h5>
         </div>
-        <Form onSubmit={handleSubmit}>
-          <Container>
+
+        <Container>
+          <form onSubmit={handleSubmit}>
             <Row xs={1} md={2}>
               <Col>
                 <Form.Label
@@ -109,9 +110,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -145,9 +144,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -176,9 +173,7 @@ const EditDataPatient = () => {
                 </Form.Select>
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -212,9 +207,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -233,9 +226,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <h5 className="address-title">Address</h5>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
@@ -271,9 +262,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -308,9 +297,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <h5 className="family-contact-title">Family Contact</h5>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
@@ -346,9 +333,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -383,9 +368,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -420,9 +403,7 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -457,15 +438,17 @@ const EditDataPatient = () => {
                 />
               </Col>
             </Row>
-          </Container>
-        </Form>
-
-        <div className="button-edit-form">
-          <ButtonModalEditPatient className="button-save-edit-form-patient" />
-          <Button className="button-cancel-form-patient" onClick={resetData}>
-            Cancel
-          </Button>
-        </div>
+            <div className="button-edit-form">
+              <ButtonModalEditPatient className="button-save-edit-form-patient" />
+              <Button
+                className="button-cancel-form-patient"
+                onClick={patientDashboard}
+              >
+                Cancel
+              </Button>
+            </div>
+          </form>
+        </Container>
       </div>
     </>
   );

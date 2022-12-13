@@ -17,10 +17,6 @@
   margin-top: 5px;
 }
 
-.button-form {
-  margin-right: 30px;
-}
-
 .button-cancel-form:hover {
   background-color: #cdcdcd !important;
   color: #1153b5 !important;

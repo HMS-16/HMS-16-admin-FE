@@ -15,6 +15,10 @@ const ChangeAppointment = () => {
     navigate(`/edit/data/patient`);
   };
 
+  const appointmentDashboard = () => {
+    navigate(`/appointment`);
+  };
+
   const baseData = {
     fullName: "",
     numberMed: "",
@@ -36,10 +40,6 @@ const ChangeAppointment = () => {
 
   const handleSubmit = () => {
     alert(`New Appointment Successfully Added`);
-  };
-
-  const resetData = () => {
-    setData(baseData);
   };
 
   return (
@@ -65,103 +65,100 @@ const ChangeAppointment = () => {
         </div>
         <div>
           <Container>
-            <Form onSubmit={handleSubmit}>
-              <Container>
-                <h5 className="change-appointment-title">Change Appointment</h5>
-                <Row xs={1} md={2}>
-                  <Col style={{ marginTop: "20px" }}>
-                    <Form.Label
-                      style={{ display: "flex", justifyContent: "start" }}
-                    >
-                      Full Name
-                      <span className="required-icon">*</span>
-                    </Form.Label>
-                    <Form.Control
-                      className="label-form-change-appointment"
-                      type="text"
-                      name="fullName"
-                      onChange={handleInput}
-                      required
-                    />
-                  </Col>
-                </Row>
-              </Container>
+            <form onSubmit={handleSubmit}>
+              <h5 className="change-appointment-title">Change Appointment</h5>
+              <Row xs={1} md={2}>
+                <Col style={{ marginTop: "20px" }}>
+                  <Form.Label
+                    style={{ display: "flex", justifyContent: "start" }}
+                  >
+                    Full Name
+                    <span className="required-icon">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="label-form-change-appointment"
+                    type="text"
+                    name="fullName"
+                    onChange={handleInput}
+                    required
+                  />
+                </Col>
+              </Row>
+              <Row xs={1} md={2}>
+                <Col style={{ marginTop: "20px" }}>
+                  <Form.Label
+                    style={{ display: "flex", justifyContent: "start" }}
+                  >
+                    No. Medical Record
+                    <span className="required-icon">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    placeholder="0123456"
+                    disabled
+                    type="text"
+                    name="numberMed"
+                    onChange={handleInput}
+                    required
+                  />
+                </Col>
+                <Col style={{ marginTop: "20px" }}>
+                  <Form.Label
+                    style={{ display: "flex", justifyContent: "start" }}
+                  >
+                    Doctor
+                    <span className="required-icon">*</span>
+                  </Form.Label>
+                  <Form.Select>
+                    <option value="1">Dr. Wendy</option>
+                    <option value="2">Dr. Nicole</option>
+                    <option value="2">Dr. Harry</option>
+                  </Form.Select>
+                </Col>
+              </Row>
 
-              <Container>
-                <Row xs={1} md={2}>
-                  <Col style={{ marginTop: "20px" }}>
-                    <Form.Label
-                      style={{ display: "flex", justifyContent: "start" }}
-                    >
-                      No. Medical Record
-                      <span className="required-icon">*</span>
-                    </Form.Label>
-                    <Form.Control
-                      disabled
-                      type="text"
-                      name="numberMed"
-                      onChange={handleInput}
-                      required
-                    />
-                  </Col>
-                  <Col style={{ marginTop: "20px" }}>
-                    <Form.Label
-                      style={{ display: "flex", justifyContent: "start" }}
-                    >
-                      Doctor
-                      <span className="required-icon">*</span>
-                    </Form.Label>
-                    <Form.Select>
-                      <option value="1">Dr. Wendy</option>
-                      <option value="2">Dr. Nicole</option>
-                      <option value="2">Dr. Harry</option>
-                    </Form.Select>
-                  </Col>
-                </Row>
-              </Container>
-
-              <Container>
-                <Row xs={1} md={2}>
-                  <Col style={{ marginTop: "20px" }}>
-                    <Form.Label
-                      style={{ display: "flex", justifyContent: "start" }}
-                    >
-                      Date
-                      <span className="required-icon">*</span>
-                    </Form.Label>
-                    <Form.Control
-                      className="label-form-add-patient"
-                      type="date"
-                      name="date"
-                      onChange={handleInput}
-                      required
-                    />
-                  </Col>
-                  <Col style={{ marginTop: "20px" }}>
-                    <Form.Label
-                      style={{ display: "flex", justifyContent: "start" }}
-                    >
-                      Time
-                      <span className="required-icon">*</span>
-                    </Form.Label>
-                    <Form.Control
-                      className="label-form-add-patient"
-                      type="time"
-                      name="time"
-                      onChange={handleInput}
-                      required
-                    />
-                  </Col>
-                </Row>
-              </Container>
-            </Form>
+              <Row xs={1} md={2}>
+                <Col style={{ marginTop: "20px" }}>
+                  <Form.Label
+                    style={{ display: "flex", justifyContent: "start" }}
+                  >
+                    Date
+                    <span className="required-icon">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="label-form-add-patient"
+                    type="date"
+                    name="date"
+                    onChange={handleInput}
+                    required
+                  />
+                </Col>
+                <Col style={{ marginTop: "20px" }}>
+                  <Form.Label
+                    style={{ display: "flex", justifyContent: "start" }}
+                  >
+                    Time
+                    <span className="required-icon">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="label-form-add-patient"
+                    type="time"
+                    name="time"
+                    onChange={handleInput}
+                    required
+                  />
+                </Col>
+              </Row>
+              <div className="button-edit-form">
+                <ButtonModalEditPatient className="button-save-edit-form-patient" />
+                <Button
+                  onClick={appointmentDashboard}
+                  className="button-cancel-form-patient"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </form>
           </Container>
-          <div className="button-edit-form" style={{ marginRight: "20px" }}>
-            <ButtonModalEditPatient className="button-save-edit-form-patient" />
-            <Button onClick={resetData} className="button-cancel-form-patient">
-              Cancel
-            </Button>
-          </div>
         </div>
       </div>
     </>

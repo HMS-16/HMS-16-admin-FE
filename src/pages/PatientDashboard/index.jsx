@@ -25,8 +25,8 @@ const PatientDashboard = () => {
             <AiOutlinePlus
               style={{
                 marginRight: "35px",
-                height: "23px",
-                width: "23px",
+                height: "25px",
+                width: "25px",
               }}
             />
             Add Patient

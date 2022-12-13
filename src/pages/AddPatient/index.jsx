@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -7,60 +7,27 @@ import Row from "react-bootstrap/Row";
 import Navbar from "../../components/Navbar";
 import "./AddPatient.css";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const AddPatient = () => {
   const navigate = useNavigate();
   const patientDetail = () => {
     navigate(`/patient/detail`);
   };
-
-  const baseData = {
-    fullName: "",
-    numberMed: "",
-    birthPlace: "",
-    birthDate: "",
-    phoneNum: "",
-    email: "",
-    address: "",
-    province: "",
-    city: "",
-    district: "",
-    FullNameFam: "",
-    relationship: "",
-    numberPhone: "",
-    emailFam: "",
-    addressFamily: "",
-    provinceFamily: "",
-    cityFamily: "",
-    districtFamily: "",
+  const patientDashboard = () => {
+    navigate(`/patient`);
   };
 
-  const [data, setData] = useState(baseData);
+  const { register, handleSubmit } = useForm();
 
-  const handleInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = () => {
-    alert(`New Patient Successfully Added`);
-  };
-
-  const resetData = () => {
-    setData(baseData);
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <>
       <div className="form-patient-page">
         <Navbar />
-        <Form onSubmit={handleSubmit}>
-          <Container>
+        <Container>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <h5 className="patient-title">Add New Patient</h5>
             </div>
@@ -74,11 +41,10 @@ const AddPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
+                  {...register("fullName")}
                   className="field-input-form-patient"
                   type="text"
-                  name="fullName"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col>
@@ -90,16 +56,12 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="field-input-form-patient"
+                  {...register("numberMed")}
                   type="text"
-                  name="numberMed"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
-
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -110,10 +72,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="field-input-form-patient"
+                  {...register("birthPlace")}
                   type="text"
-                  name="birthPlace"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -125,16 +86,14 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="field-input-form-patient"
+                  {...register("date")}
                   type="date"
                   name="birthDate"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -161,9 +120,7 @@ const AddPatient = () => {
                 </Form.Select>
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -189,15 +146,12 @@ const AddPatient = () => {
                 <Form.Control
                   type="text"
                   className="label-form-add-patient"
-                  name="phoneNum"
+                  {...register("phoneNum")}
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -208,16 +162,13 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("email")}
                   type="email"
-                  name="email"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <h5 className="address-title">Address</h5>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
@@ -229,10 +180,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("address")}
                   type="text"
-                  name="address"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -244,16 +194,13 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("province")}
                   type="text"
-                  name="province"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -264,10 +211,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("city")}
                   type="text"
-                  name="city"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -279,16 +225,13 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("district")}
                   type="text"
-                  name="district"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <h5 className="family-contact-title">Family Contact</h5>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
@@ -300,10 +243,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("fullNameFam")}
                   type="text"
-                  name="fullNameFam"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -315,16 +257,13 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("relationship")}
                   type="text"
-                  name="relationship"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -335,10 +274,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("numberPhone")}
                   type="text"
-                  name="numberPhone"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -350,16 +288,13 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("emailFam")}
                   type="text"
-                  name="emailFam"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -370,10 +305,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("addressFamily")}
                   type="text"
-                  name="addressFamily"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -385,16 +319,13 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("provinceFamily")}
                   type="text"
-                  name="provinceFamily"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
 
-          <Container>
             <Row xs={1} md={2}>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -405,10 +336,9 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("cityFamily")}
                   type="text"
-                  name="cityFamily"
                   required
-                  onChange={handleInput}
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -420,24 +350,28 @@ const AddPatient = () => {
                 </Form.Label>
                 <Form.Control
                   className="label-form-add-patient"
+                  {...register("districtFamily")}
                   type="text"
-                  name="districtFamily"
                   required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
-          </Container>
-        </Form>
-
-        <div className="button-form">
-          <Button onClick={patientDetail} className="button-save-form-patient">
-            Save
-          </Button>
-          <Button className="button-cancel-form-patient" onClick={resetData}>
-            Cancel
-          </Button>
-        </div>
+            <div className="button-form">
+              <Button
+                onClick={patientDetail}
+                className="button-save-form-patient"
+              >
+                Save
+              </Button>
+              <Button
+                onClick={patientDashboard}
+                className="button-cancel-form-patient"
+              >
+                Cancel
+              </Button>
+            </div>
+          </form>
+        </Container>
       </div>
     </>
   );

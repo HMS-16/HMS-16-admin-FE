@@ -71,7 +71,6 @@ label {
 .button-cancel-form-patient {
   margin-top: 30px;
   margin-bottom: 15px;
-  margin-right: 80px;
   width: 90px;
   height: 30px;
   border-radius: 10px !important;
@@ -89,8 +88,8 @@ label {
 }
 
 .button-form {
-  display: flex;
-  justify-content: end;
+  display: flex !important;
+  justify-content: end !important;
 }
 
 .required-icon {

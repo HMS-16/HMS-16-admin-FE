@@ -1,7 +1,6 @@
 .container-modal-edit-patient {
   display: flex !important;
   justify-content: center !important;
-  margin-right: 105px;
 }
 
 .modal-frame {
@@ -54,6 +53,12 @@
   margin-left: 80px;
   height: 300px;
   width: 300px;
+}
+
+.modal-footer {
+  display: flex !important;
+  justify-content: center !important;
+  margin-left: 35px !important;
 }
 
 .button-save-form {
