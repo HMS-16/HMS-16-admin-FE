@@ -2,20 +2,21 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdEdit } from "react-icons/md";
-import { getDoctorById } from "../../store/features/doctorsSlice";
+import { getDoctorById } from "../../store/features/doctor/doctorsSlice";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DoctorImage from "../../assets/images/doctor.png";
 
 const DoctorDetail = () => {
-  const { id } = useParams();
+  const { str_num } = useParams();
   const dispatch = useDispatch();
   const doctor = useSelector((state) => state.doctors);
+  console.log(doctor);
 
   useEffect(() => {
-    dispatch(getDoctorById(id));
-  }, [dispatch, id]);
+    dispatch(getDoctorById(str_num));
+  }, [dispatch, str_num]);
 
   // console.log(doctor);
   return (
@@ -48,17 +49,21 @@ const DoctorDetail = () => {
                     style={{ backgroundColor: "#C7DAF5" }}
                     roundedCircle
                   />
-                  {doctor.data.doctor_by_pk?.name ? (
-                    <p className="fs-5 fw-bold pt-4 text-dark">{doctor.data.doctor_by_pk?.name}</p>
+                  {doctor.data.name ? (
+                    <p className="fs-5 fw-bold pt-4 text-dark">{doctor.data.name}</p>
                   ) : (
                     <Skeleton className="mt-4" />
                   )}
-                  {doctor.data.doctor_by_pk?.id ? (
-                    <p className="fs-5 text-dark">{doctor.data.doctor_by_pk?.id}</p>
+                  {doctor.data.str_num ? (
+                    <p className="fs-5 text-dark">{doctor.data.str_num}</p>
                   ) : (
                     <Skeleton className="my-4" />
                   )}
-                  <p className="fs-5 fw-bold text-dark">General Practioner</p>
+                  {doctor.data.competency ? (
+                    <p className="fs-5 fw-bold text-dark">{doctor.data.competency}</p>
+                  ) : (
+                    <Skeleton className="my-4" />
+                  )}
                 </Col>
 
                 {/* breakline */}
@@ -66,29 +71,26 @@ const DoctorDetail = () => {
 
                 <Col xs={4} className="text-start mt-3">
                   <p className="fs-5 fw-bold text-dark">Gender</p>
-                  {doctor.data.doctor_by_pk?.gender ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.gender}</p>
+                  {doctor.data.gender ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.gender}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Status</p>
-                  {doctor.data.doctor_by_pk?.status ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.status}</p>
+                  {doctor.data.status ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.status}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Last Education</p>
-                  {doctor.data.doctor_by_pk?.education ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.education}</p>
+                  {doctor.data.last_education ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.last_education}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Street Address</p>
-                  {doctor.data.doctor_by_pk?.address ? (
-                    <p className="fs-5 text-dark">
-                      {doctor.data.doctor_by_pk?.address}, {doctor.data.doctor_by_pk?.district},{" "}
-                      {doctor.data.doctor_by_pk?.city}, {doctor.data.doctor_by_pk?.province}
-                    </p>
+                  {doctor.data.address ? (
+                    <p className="fs-5 text-dark">{doctor.data.address}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
@@ -96,20 +98,20 @@ const DoctorDetail = () => {
 
                 <Col xs={4} className="text-start mt-3">
                   <p className="fs-5 fw-bold text-dark">Birth Place</p>
-                  {doctor.data.doctor_by_pk?.birthPlace ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.birthPlace}</p>
+                  {doctor.data.pob ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.pob}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Phone Number</p>
-                  {doctor.data.doctor_by_pk?.phoneNumber ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.phoneNumber}</p>
+                  {doctor.data.phone_num ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.phone_num}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Graduation Year</p>
-                  {doctor.data.doctor_by_pk?.graduationYear ? (
-                    <p className="fs-5 text-dark">{doctor.data.doctor_by_pk?.graduationYear}</p>
+                  {doctor.data.graduation_year ? (
+                    <p className="fs-5 text-dark">{doctor.data.graduation_year}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
@@ -117,20 +119,20 @@ const DoctorDetail = () => {
 
                 <Col xs={4} className="text-start mt-3">
                   <p className="fs-5 fw-bold text-dark">Birth Date</p>
-                  {doctor.data.doctor_by_pk?.birthday ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.birthday}</p>
+                  {doctor.data.dob ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.dob}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Email</p>
-                  {doctor.data.doctor_by_pk?.email ? (
-                    <p className="fs-5 pb-4 text-dark">{doctor.data.doctor_by_pk?.email}</p>
+                  {doctor.data.email ? (
+                    <p className="fs-5 pb-4 text-dark">{doctor.data.email}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Long Experience</p>
-                  {doctor.data.doctor_by_pk?.longExperience ? (
-                    <p className="fs-5 text-dark">{doctor.data.doctor_by_pk?.longExperience} Year</p>
+                  {doctor.data.exp_year ? (
+                    <p className="fs-5 text-dark">{doctor.data.exp_year}</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}

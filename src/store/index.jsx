@@ -1,12 +1,12 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import doctorsSlice from "./features/doctorsSlice";
-
-const reducer = combineReducers({
-  doctors: doctorsSlice,
-});
+import { configureStore } from "@reduxjs/toolkit";
+import { rootReducer } from "./features";
 
 const store = configureStore({
-  reducer: reducer,
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;

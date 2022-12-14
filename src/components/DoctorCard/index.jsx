@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Image, Nav } from "react-bootstrap";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DoctorImage from "../../assets/images/doctor.png";
 
@@ -16,7 +15,7 @@ const DoctorCard = ({ data }) => {
 
   return (
     <>
-      <Nav.Link href={`/doctor/${data.id}`}>
+      <Nav.Link href={`/doctor/${data.str_num}`}>
         <Image
           src={DoctorImage}
           alt="doctor image"
@@ -25,7 +24,7 @@ const DoctorCard = ({ data }) => {
           style={{ backgroundColor: "#C7DAF5" }}
           roundedCircle
         />
-        {doctorName ? <p className="fs-5 fw-bold pt-4 text-dark">{doctorName}</p> : <Skeleton />}
+        <p className="fs-5 fw-bold pt-4 text-dark">{doctorName}</p>
       </Nav.Link>
     </>
   );

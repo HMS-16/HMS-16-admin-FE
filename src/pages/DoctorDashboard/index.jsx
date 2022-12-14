@@ -4,7 +4,7 @@ import { MdEdit } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
-import { getDoctor } from "../../store/features/doctorsSlice";
+import { getDoctor } from "../../store/features/doctor/doctorsSlice";
 import DoctorCard from "../../components/DoctorCard";
 import DoctorTable from "../../components/DoctorTable";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ import "swiper/css";
 
 const DoctorDashboard = () => {
   const dispatch = useDispatch();
-  const doctor = useSelector((state) => state.doctors);
+  const { data: doctor } = useSelector((state) => state.doctors);
 
   useEffect(() => {
     dispatch(getDoctor());
@@ -31,11 +31,11 @@ const DoctorDashboard = () => {
           </Link>
         </Stack>
         <Container className="pt-4">
-          {doctor.data.doctor ? (
+          {doctor ? (
             <Swiper freeMode grabCursor modules={[FreeMode]} className="mySwiper" slidesPerView={4} spaceBetween={50}>
-              {doctor.data.doctor?.map((item) => (
-                <SwiperSlide key={item.id}>
-                  <DoctorCard key={item.id} data={item} />
+              {doctor.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <DoctorCard key={index} data={item} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -50,7 +50,7 @@ const DoctorDashboard = () => {
                   style={{ backgroundColor: "#C7DAF5" }}
                   roundedCircle
                 />
-                <Row className="pt-4">
+                <Row className="pt-4 py-2">
                   <Skeleton />
                 </Row>
               </Col>

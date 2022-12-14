@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import APIDoctor from "../../apis/doctor.api";
+import APIDoctor from "../../../apis/doctor.api";
 
 const initialState = {
   data: [],
@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-export const getDoctor = createAsyncThunk("fetch/getDoctor", async () => {
+export const getDoctor = createAsyncThunk("fetch/doctors", async () => {
   try {
     const response = await APIDoctor.getDoctor();
     return response;
@@ -16,9 +16,9 @@ export const getDoctor = createAsyncThunk("fetch/getDoctor", async () => {
   }
 });
 
-export const getDoctorById = createAsyncThunk("fetch/getDoctorById", async (id) => {
+export const getDoctorById = createAsyncThunk("fetch/doctorsById", async (str_num) => {
   try {
-    const response = await APIDoctor.getDoctorById(id);
+    const response = await APIDoctor.getDoctorById(str_num);
     return response;
   } catch (err) {
     console.log(err);

@@ -4,6 +4,7 @@
     "name": "Dr. One",
     "gender": "Male",
     "birthday": "1980-1-1",
+    "birthPlace": "Medan",
     "status": "Single",
     "address": "Jl. Bahagia No.21",
     "city": "Jakarta",
@@ -11,16 +12,17 @@
     "district": "Mangga Besar",
     "phoneNumber": "082145673243",
     "email": "one@gmail.com",
-    "entryYear": "2001",
-    "doctorYear": 1,
+    "graduationYear": "2001",
+    "longExperience": 1,
     "education": "University One Indonesia",
-    "image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1202.jpg"
+    "competency": "General Practicioner"
   },
   {
     "id": 2,
     "name": "Dr. Two",
     "gender": "Female",
     "birthday": "1980-2-2",
+    "birthPlace": "Medan",
     "status": "Married",
     "address": "Jl. Bahagia No.22",
     "city": "Jakarta",
@@ -28,16 +30,17 @@
     "district": "Mangga Besar",
     "phoneNumber": "082145673243",
     "email": "two@gmail.com",
-    "entryYear": "2002",
-    "doctorYear": 2,
+    "graduationYear": "2002",
+    "longExperience": 2,
     "education": "University Two Indonesia",
-    "image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/239.jpg"
+    "competency": "General Practicioner"
   },
   {
     "id": 3,
     "name": "Dr. Three",
     "gender": "Male",
     "birthday": "1980-3-3",
+    "birthPlace": "Medan",
     "status": "Single",
     "address": "Jl. Bahagia No.23",
     "city": "Jakarta",
@@ -45,16 +48,17 @@
     "district": "Mangga Besar",
     "phoneNumber": "082145673243",
     "email": "three@gmail.com",
-    "entryYear": "2003",
-    "doctorYear": 3,
+    "graduationYear": "2003",
+    "longExperience": 3,
     "education": "University Three Indonesia",
-    "image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg"
+    "competency": "General Practicioner"
   },
   {
     "id": 4,
     "name": "Dr. Four",
     "gender": "Female",
     "birthday": "1980-4-4",
+    "birthPlace": "Medan",
     "status": "Married",
     "address": "Jl. Bahagia No.24",
     "city": "Jakarta",
@@ -62,16 +66,17 @@
     "district": "Mangga Besar",
     "phoneNumber": "082145673243",
     "email": "four@gmail.com",
-    "entryYear": "2004",
-    "doctorYear": 4,
+    "graduationYear": "2004",
+    "longExperience": 4,
     "education": "University Four Indonesia",
-    "image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/284.jpg"
+    "competency": "General Practicioner"
   },
   {
     "id": 5,
     "name": "Dr. Five",
     "gender": "Male",
     "birthday": "1980-5-5",
+    "birthPlace": "Medan",
     "status": "Single",
     "address": "Jl. Bahagia No.25",
     "city": "Jakarta",
@@ -79,16 +84,17 @@
     "district": "Mangga Besar",
     "phoneNumber": "082145673243",
     "email": "five@gmail.com",
-    "entryYear": "2005",
-    "doctorYear": 5,
+    "graduationYear": "2005",
+    "longExperience": 5,
     "education": "University Five Indonesia",
-    "image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/221.jpg"
+    "competency": "General Practicioner"
   },
   {
     "id": 6,
     "name": "Dr. Six",
     "gender": "Female",
     "birthday": "1980-6-6",
+    "birthPlace": "Medan",
     "status": "Married",
     "address": "Jl. Bahagia No.26",
     "city": "Jakarta",
@@ -96,9 +102,27 @@
     "district": "Mangga Besar",
     "phoneNumber": "082145673243",
     "email": "six@gmail.com",
-    "entryYear": "2006",
-    "doctorYear": 6,
+    "graduationYear": "2006",
+    "longExperience": 6,
     "education": "University Six Indonesia",
-    "image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/627.jpg"
+    "competency": "General Practicioner"
+  },
+  {
+    "id": 7,
+    "name": "Dr. Seven",
+    "gender": "Male",
+    "birthday": "1980-7-7",
+    "birthPlace": "Medan",
+    "status": "Married",
+    "address": "Jl. Bahagia No.27",
+    "city": "Jakarta",
+    "province": "DKI Jakarta",
+    "district": "Mangga Besar",
+    "phoneNumber": "082145673243",
+    "email": "seven@gmail.com",
+    "graduationYear": 2007,
+    "longExperience": 7,
+    "education": "University Seven Indonesia",
+    "competency": "General Practicioner"
   }
 ]
