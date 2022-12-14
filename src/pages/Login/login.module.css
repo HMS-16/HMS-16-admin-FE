@@ -1,0 +1,451 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap");
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  background-color: rgba(217, 217, 217, 0.54);
+  backdrop-filter: blur(5px);
+}
+.overlayLogin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(217, 217, 217, 0.54);
+  backdrop-filter: blur(5px);
+}
+/* .imageBg {
+  background-image: url(../images/landingbg2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 90vh;
+} */
+.imageMdl {
+  background-image: url(../../assets/images/landingbg2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90vh;
+  z-index: 2;
+}
+.landingLogin {
+  width: 85%;
+  height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.heroInfo {
+  width: 40%;
+  height: 80%;
+}
+.heroInfo h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: left;
+  width: 110%;
+  color: #000000;
+  margin-bottom: 0.5em;
+}
+.heroInfo p {
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+  /* margin-top: 3.25em; */
+  margin-bottom: 1em;
+}
+.navigatingBtn {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navigatingBtn button {
+  border: none;
+}
+.btn1 {
+  background-color: #1153b5;
+  color: #ffffff;
+  font-weight: 700;
+}
+.btn2 {
+  color: #1153b5;
+  font-weight: 700;
+  background-color: transparent;
+}
+.iconBtn {
+  font-size: 1rem;
+}
+.imageLp {
+  background-image: url("../../assets/images/login-vector.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  background-position: center;
+  width: 40%;
+  height: 60vh;
+}
+.navigatingBtn button {
+  padding: 0.75em 1.25em;
+  display: flex;
+  align-items: center;
+  border-radius: 0.75em;
+  font-size: 1rem;
+}
+.aboutUs {
+  padding-top: 1em;
+}
+.aboutUs div {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.aboutUs div h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+.aboutUs div p {
+  margin-bottom: 4em;
+}
+.ourService {
+  background-color: #e3ecfa;
+  padding-top: 1.5em;
+}
+.ourService h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+.servicePoint {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+.servicePoint ul {
+  width: 23%;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.servicePoint ul li {
+  list-style: none;
+}
+.serviceImg1 {
+  background-image: url("../../assets/images/serviceimg1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  width: 6.25em;
+  height: 6.25em;
+}
+.serviceImg2 {
+  background-image: url("../../assets/images/serviceimg2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  width: 6.25em;
+  height: 6.25em;
+}
+.serviceImg3 {
+  background-image: url("../../assets/images/serviceimg3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  width: 6.25em;
+  height: 6.25em;
+}
+.serviceTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25em;
+  margin-top: 0.75em;
+}
+.serviceDesc {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 1em;
+}
+.features {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: flex-end;
+}
+.imageUi {
+  background-image: url(../../assets/images/imageui.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  width: 60%;
+  height: 50vh;
+}
+.features {
+  padding-top: 2em;
+}
+.featuresTitle h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.featuresPoint {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 50% 45%;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 35% 45%;
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+}
+.grid1 {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+}
+.grid2 {
+  grid-row: 1;
+  grid-column: 2;
+  text-align: center;
+}
+.grid3 {
+  grid-row: 2;
+  grid-column: 2;
+  text-align: center;
+}
+.grid1 div {
+  position: absolute;
+  padding: 1.75em 1.75em;
+  background-color: #1153b5;
+  border-radius: 50%;
+}
+.grid1 svg {
+  text-align: left;
+  fill: #ffffff;
+  font-size: 2em;
+}
+.grid2 h4 {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 700;
+  height: 50px;
+}
+.grid3 p {
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.formBox {
+  width: 40%;
+
+  /* border: 1px solid #cdcdcd; */
+  padding: 2em 1.5em;
+  margin-right: 4%;
+}
+.formBox h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+
+  text-align: center;
+}
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.625em;
+}
+.formLogin input {
+  font-size: 1rem;
+  padding: 0.5em 0.5em;
+  margin-bottom: 1em;
+  border: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid #cdcdcd;
+}
+.formLogin input:focus {
+  outline: none;
+  border-bottom: 2px solid #1153b5;
+  box-sizing: border-box;
+}
+.formLogin label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: left;
+}
+.confirmSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+.confirmSection div {
+  display: flex;
+  align-items: center;
+}
+.confirmSection div input {
+  margin: 0;
+}
+.confirmSection div label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222222;
+  margin: 0;
+}
+.confirmSection button {
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #222222;
+  border: none;
+  background-color: transparent;
+}
+.signInBtn {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em 8em !important;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.75em;
+  border: none;
+  background-color: #1153b5;
+  color: #ffffff;
+}
+.signInBtn a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.signInBtn a:hover {
+  color: #ffffff;
+}
+.footer {
+  width: 100%;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top: 1px solid black;
+}
+.footer ul {
+  list-style: none;
+}
+.footer ul li {
+  color: #1153b5;
+  text-align: left;
+  padding-bottom: 1.25em;
+}
+.logoFooter {
+  background-image: url(../../assets/images/Mediclinic.png);
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+}
+.lineFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 1px solid #a7a3a3;
+  width: 100%;
+}
+.textWrapper {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.75em 0em;
+}
+.textWrapper p {
+  margin: 0;
+}
+.loginLayout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.heroInfoLogin {
+  background-color: #1153b5;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.heroInfoLogin h3 {
+  color: #ffffff;
+  width: 70%;
+  margin-top: 1em;
+}
+.loginVector {
+  background-image: url("../../assets/images/login-vector.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 80%;
+  height: 50vh;
+}
+.formLayout {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.formLayout h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1em;
+}
+.logoLogin {
+  background-image: url("../../assets/images/Mediclinic.png");
+  width: 15%;
+  height: 15vh;
+  background-size: cover;
+}
+.formLoginBox {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.formLoginBox label {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 2em;
+}
+.formLoginBox input {
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.75em;
+  border: 1px solid #cdcdcd;
+}
+.formLoginBox input:focus {
+  outline: none;
+  border: 1px solid #1153b5;
+}
