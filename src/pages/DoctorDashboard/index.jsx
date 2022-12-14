@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Container, Stack } from "react-bootstrap";
+import { Button, Col, Container, Image, Row, Stack } from "react-bootstrap";
 import { MdEdit } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDoctor } from "../../store/features/doctorsSlice";
 import DoctorCard from "../../components/DoctorCard";
 import DoctorTable from "../../components/DoctorTable";
+import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import DoctorImage from "../../assets/images/doctor.png";
 import "./DoctorDashboard.css";
 import "swiper/css";
-import { Link } from "react-router-dom";
 
 const DoctorDashboard = () => {
   const dispatch = useDispatch();
@@ -29,13 +31,70 @@ const DoctorDashboard = () => {
           </Link>
         </Stack>
         <Container className="pt-4">
-          <Swiper freeMode grabCursor modules={[FreeMode]} className="mySwiper" slidesPerView={4} spaceBetween={50}>
-            {doctor.data.doctor?.map((item) => (
-              <SwiperSlide key={item.id}>
-                <DoctorCard key={item.id} data={item} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {doctor.data.doctor ? (
+            <Swiper freeMode grabCursor modules={[FreeMode]} className="mySwiper" slidesPerView={4} spaceBetween={50}>
+              {doctor.data.doctor?.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <DoctorCard key={item.id} data={item} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <Row>
+              <Col>
+                <Image
+                  src={DoctorImage}
+                  alt="doctor image"
+                  width={200}
+                  height={200}
+                  style={{ backgroundColor: "#C7DAF5" }}
+                  roundedCircle
+                />
+                <Row className="pt-4">
+                  <Skeleton />
+                </Row>
+              </Col>
+              <Col>
+                <Image
+                  src={DoctorImage}
+                  alt="doctor image"
+                  width={200}
+                  height={200}
+                  style={{ backgroundColor: "#C7DAF5" }}
+                  roundedCircle
+                />
+                <Row className="pt-4">
+                  <Skeleton />
+                </Row>
+              </Col>
+              <Col>
+                <Image
+                  src={DoctorImage}
+                  alt="doctor image"
+                  width={200}
+                  height={200}
+                  style={{ backgroundColor: "#C7DAF5" }}
+                  roundedCircle
+                />
+                <Row className="pt-4">
+                  <Skeleton />
+                </Row>
+              </Col>
+              <Col>
+                <Image
+                  src={DoctorImage}
+                  alt="doctor image"
+                  width={200}
+                  height={200}
+                  style={{ backgroundColor: "#C7DAF5" }}
+                  roundedCircle
+                />
+                <Row className="pt-4">
+                  <Skeleton />
+                </Row>
+              </Col>
+            </Row>
+          )}
         </Container>
       </div>
       <div className="ps-2 mt-5 shadow rounded-4 overflow-auto">
