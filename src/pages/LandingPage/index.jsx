@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../../components/Navbar";
 import style from "./landingpage.module.css";
 import { BsCalendar } from "react-icons/bs";
@@ -19,10 +19,7 @@ const LandingPage = () => {
           <section className={style.landingLogin}>
             <div className={style.heroInfo}>
               <h1>Manage Your Clinic Effectively</h1>
-              <p>
-                Mediclinic is a mobile application made for users in monitoring
-                health activities
-              </p>
+              <p>Mediclinic is a mobile application made for users in monitoring health activities</p>
               <div className={style.navigatingBtn}>
                 <button className={style.btn1}>Get in Touch</button>
               </div>
@@ -34,11 +31,9 @@ const LandingPage = () => {
             <div>
               <h1>About Us</h1>
               <p>
-                mediclinic is medical practice management software to manage all
-                aspects of clinic operations. This customizable clinical
-                information system is a healthcare solution such as patient
-                registration, outpatient appointments, doctors and nurses
-                schedules, and patient check-ups.
+                mediclinic is medical practice management software to manage all aspects of clinic operations.
+                This customizable clinical information system is a healthcare solution such as patient
+                registration, outpatient appointments, doctors and nurses schedules, and patient check-ups.
               </p>
             </div>
           </section>
@@ -50,25 +45,23 @@ const LandingPage = () => {
                 <li className={style.serviceImg1}></li>
                 <li className={style.serviceTitle}>Effective and Efficient</li>
                 <li className={style.serviceDesc}>
-                  Effective in facilitating the management of hospital data such
-                  as patient data and doctor data digitally.
+                  Effective in facilitating the management of hospital data such as patient data and doctor
+                  data digitally.
                 </li>
               </ul>
               <ul>
                 <li className={style.serviceImg2}></li>
                 <li className={style.serviceTitle}>Technology up to date</li>
                 <li className={style.serviceDesc}>
-                  Always up to date with the latest technology, so that the
-                  security of hospital application technology will be guaranteed
-                  and usage will be more optimal.
+                  Always up to date with the latest technology, so that the security of hospital application
+                  technology will be guaranteed and usage will be more optimal.
                 </li>
               </ul>
               <ul>
                 <li className={style.serviceImg3}></li>
                 <li className={style.serviceTitle}>Innovative Development</li>
                 <li className={style.serviceDesc}>
-                  We keep on innovating by updating & developing our systems,
-                  providing new solutions for
+                  We keep on innovating by updating & developing our systems, providing new solutions for
                 </li>
               </ul>
             </div>
@@ -90,8 +83,7 @@ const LandingPage = () => {
                   </div>
                   <div className={style.grid3}>
                     <p>
-                      Mediclinic can help you to scheduling of effective and
-                      efficient patient appointments
+                      Mediclinic can help you to scheduling of effective and efficient patient appointments
                     </p>
                   </div>
                 </div>
@@ -131,10 +123,7 @@ const LandingPage = () => {
                     <h4>Electronic Medical Record</h4>
                   </div>
                   <div className={style.grid3}>
-                    <p>
-                      Easily record complaints, diagnosis and medical history
-                      patients
-                    </p>
+                    <p>Easily record complaints, diagnosis and medical history patients</p>
                   </div>
                 </div>
               </div>
