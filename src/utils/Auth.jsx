@@ -4,5 +4,8 @@ const Auth = {
     if (!Cookies.get("token")) return false;
     return true;
   },
+  getToken() {
+    return Cookies.get("token");
+  },
 };
 export default Auth;
