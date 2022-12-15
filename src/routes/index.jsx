@@ -11,6 +11,7 @@ import AddDoctor from "../pages/AddDoctor";
 import ProtectedRoute from "./ProtectedRoute";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
+import NoPage from "../pages/NoPage";
 
 const Routers = () => {
   return (
@@ -31,6 +32,7 @@ const Routers = () => {
           <Route path="nurse" element={<ManageNurse />} />
           <Route path="appointment" element={<Appointment />} />
         </Route>
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
   );

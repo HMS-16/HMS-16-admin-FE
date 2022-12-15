@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Nav } from "react-bootstrap";
 import { FaBars, FaStethoscope, FaUserNurse } from "react-icons/fa";
 import { MdCalendarToday, MdDashboard, MdLogout, MdPerson, MdSettings } from "react-icons/md";
-import { NavLink } from "react-router-dom";
 import Logo from "../../assets/images/Logo.png";
 import "./Sidebar.css";
 
@@ -67,24 +67,24 @@ const Sidebar = ({ children }) => {
           </div>
           <div className="pt-2">
             {menuItem.map((item, index) => (
-              <NavLink to={item.path} key={index} className="link" activeclassname="active">
+              <Nav.Link href={item.path} key={index} className="link">
                 <div className="icon">{item.icon}</div>
                 <div style={{ display: isOpen ? "block" : "none" }} className="link_text">
                   {item.name}
                 </div>
-              </NavLink>
+              </Nav.Link>
             ))}
           </div>
         </div>
         <div className="mt-auto">
           <hr />
           {toolItem.map((item, index) => (
-            <NavLink to={item.path} key={index} className="link" activeclassname="active">
+            <Nav.Link href={item.path} key={index} className="link">
               <div className="icon">{item.icon}</div>
               <div style={{ display: isOpen ? "block" : "none" }} className="link_text">
                 {item.name}
               </div>
-            </NavLink>
+            </Nav.Link>
           ))}
         </div>
       </div>
