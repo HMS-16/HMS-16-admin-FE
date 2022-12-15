@@ -27,6 +27,7 @@ const Login = () => {
     e.preventDefault();
     handleSubmit();
     dispatch(fetchAuth({ email: username, password: password }));
+    setTimeout(() => window.location.reload(false), 5000);
   };
 
   return (
