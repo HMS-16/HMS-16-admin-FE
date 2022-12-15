@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import ManageDoctor from "../pages/ManageDoctor";
+import DoctorDashboard from "../pages/DoctorDashboard";
 import ManageNurse from "../pages/ManageNurse";
 import ManagePatient from "../pages/ManagePatient";
 import Appointment from "../pages/Appointment";
+import DoctorDetail from "../pages/DoctorDetail";
+import PrivateRoute from "./PrivateRoute";
+import AddDoctor from "../pages/AddDoctor";
+import ProtectedRoute from "./ProtectedRoute";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
-import ProtectedRoute from "./ProtectedRoute";
-import PrivateRoute from "./PrivateRoute";
+import NoPage from "../pages/NoPage";
 
 const Routers = () => {
   return (
@@ -21,15 +24,16 @@ const Routers = () => {
         <Route path="/" element={<PrivateRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="patient" element={<ManagePatient />} />
-          <Route path="doctor" element={<ManageDoctor />} />
+          <Route path="doctor">
+            <Route index element={<DoctorDashboard />} />
+            <Route path=":str_num" element={<DoctorDetail />} />
+            <Route path="add" element={<AddDoctor />} />
+          </Route>
           <Route path="nurse" element={<ManageNurse />} />
           <Route path="appointment" element={<Appointment />} />
         </Route>
+        <Route path="*" element={<NoPage />} />
       </Routes>
-
-      {/* <Routes>
-        <Route path="/landing" element={<LandingPage />} />
-      </Routes> */}
     </BrowserRouter>
   );
 };
