@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CONST } from "../utils/constants";
+import { CONST } from "../utils/constant";
 import { requestHandler } from "./interceptor";
 
 const config = {
