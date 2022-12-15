@@ -26,6 +26,34 @@ const APIDoctor = {
       throw new Error(message);
     }
   },
+  async addDoctor(data) {
+    try {
+      const response = await config.post("/doctors", data, { headers });
+      return response.data.data;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async deleteDoctor(str_num) {
+    try {
+      const response = await config.delete(`/doctors/${str_num}`, { headers });
+      return response.data.data;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async editDoctor(data) {
+    const str_num = data.str_num;
+    try {
+      const response = await config.delete(`/doctors/${str_num}`, data, { headers });
+      return response.data.data;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
 };
 
 export default APIDoctor;

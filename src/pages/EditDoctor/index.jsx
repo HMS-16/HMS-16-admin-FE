@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addDoctor } from "../../store/features/doctor/doctorsSlice";
 
-const AddDoctor = () => {
+const EditDoctor = () => {
   const initialValue = {
     name: "",
     pob: "",
@@ -70,7 +70,7 @@ const AddDoctor = () => {
     <>
       <Row style={{ height: "100vh", overflow: "auto" }}>
         <Row className="ps-4 mt-4 text-start">
-          <p className="pt-2 fs-4 fw-bold">Add Doctor</p>
+          <p className="pt-2 fs-4 fw-bold">Edit Doctor Profile</p>
 
           {/* Information Doctor Field */}
           <p className="pt-2 fs-5 fw-bold">Information Doctor</p>
@@ -282,7 +282,7 @@ const AddDoctor = () => {
             </Row>
             <Stack direction="horizontal" gap={3} className="d-flex my-4 justify-content-end">
               <Button variant="blue" type="submit">
-                Add
+                Save
               </Button>
               <Link style={{ textDecoration: "none" }} to="/doctor">
                 <Button variant="outBlue">Cancel</Button>
@@ -295,4 +295,4 @@ const AddDoctor = () => {
   );
 };
 
-export default AddDoctor;
+export default EditDoctor;
