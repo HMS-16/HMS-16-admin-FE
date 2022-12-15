@@ -1,10 +1,6 @@
-import React from "react";
+import { React, useState } from "react";
 import Navbar from "../../components/Navbar/index";
-import { Col } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import { Button } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
-import { Container } from "react-bootstrap";
+import { Container, Col, Form, Button, Row } from "react-bootstrap";
 import "./CreateAppointment.css";
 import { useNavigate } from "react-router-dom";
 
@@ -14,13 +10,66 @@ const CreateAppointment = () => {
     navigate(`/appointment`);
   };
 
+  const data = {
+    fullName: "",
+    date: "",
+    doctor: "",
+    shift: "",
+  };
+
+  const dataError = {
+    fullName: "",
+  };
+
+  const [datas, setDatas] = useState(data);
+  const [errorMessage, setErrorMessage] = useState(dataError);
+  const regexText = /^[a-zA-Z\s]*$/;
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    console.log(value);
+
+    setDatas({
+      ...datas,
+      [name]: value,
+    });
+
+    if (name === "fullName") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          fullName: "Name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (datas === "") {
+      alert("Input Form!");
+    } else {
+      alert(`
+      Full Name: ${datas.fullName}
+      Date: ${datas.date}
+      Doctor: ${datas.doctor}
+      Shift: ${datas.shift}
+    `);
+    }
+    setDatas(data);
+  };
+
   return (
     <>
       <div>
         <Navbar />
         <Container>
           <h5 className="create-appointment-title">Create Appointment</h5>
-          <form>
+          <hr />
+          <Form onSubmit={handleSubmit}>
             <h5 className="change-appointment-title">Session Information</h5>
             <Row md={2}>
               <Col style={{ marginTop: "20px" }}>
@@ -31,11 +80,16 @@ const CreateAppointment = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-change-appointment"
-                  type="text"
                   name="fullName"
+                  type="text"
                   required
+                  value={datas.fullName}
+                  onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.fullName && (
+                  <p className="error-message">{errorMessage.fullName}</p>
+                )}
               </Col>
             </Row>
             <Row xs={1} md={2}>
@@ -46,7 +100,12 @@ const CreateAppointment = () => {
                   No. Medical Record
                   <span className="required-icon">*</span>
                 </Form.Label>
-                <Form.Control type="text" name="numberMed" required />
+                <Form.Control
+                  disabled
+                  name="numberMed"
+                  type="text"
+                  className="field-input-form-patient"
+                />
               </Col>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -56,9 +115,11 @@ const CreateAppointment = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
+                  className="field-input-form-patient"
+                  value={datas.date}
                   type="date"
                   name="date"
+                  onChange={handleInput}
                   required
                 />
               </Col>
@@ -72,10 +133,14 @@ const CreateAppointment = () => {
                   Doctor
                   <span className="required-icon">*</span>
                 </Form.Label>
-                <Form.Select>
-                  <option value="1">Dr. Wendy</option>
-                  <option value="2">Dr. Nicole</option>
-                  <option value="2">Dr. Harry</option>
+                <Form.Select
+                  value={datas.doctor}
+                  className="label-form-add-patient"
+                  onChange={handleInput}
+                >
+                  <option name="doctor">Dr. Wendy</option>
+                  <option name="doctor">Dr. Nicole</option>
+                  <option name="doctor">Dr. Harry</option>
                 </Form.Select>
               </Col>
 
@@ -83,15 +148,19 @@ const CreateAppointment = () => {
                 <Form.Label
                   style={{ display: "flex", justifyContent: "start" }}
                 >
-                  Time
+                  Shift
                   <span className="required-icon">*</span>
                 </Form.Label>
-                <Form.Control
-                  className="label-form-add-patient"
-                  type="time"
-                  name="time"
+                <Form.Select
+                  value={datas.shift}
                   required
-                />
+                  className="label-form-add-patient"
+                  onChange={handleInput}
+                >
+                  <option name="shift">09.00 - 12.00</option>
+                  <option name="shift">13.00 - 16.00</option>
+                  <option name="shift">18.00 - 21.00</option>
+                </Form.Select>
               </Col>
             </Row>
             <div className="button-form-create-appointment">
@@ -108,7 +177,7 @@ const CreateAppointment = () => {
                 Cancel
               </Button>
             </div>
-          </form>
+          </Form>
         </Container>
       </div>
     </>

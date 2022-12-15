@@ -1,9 +1,5 @@
 import { React, useState } from "react";
-import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import { Container, Col, Button, Form, Row } from "react-bootstrap";
 import Navbar from "../../components/Navbar";
 import ButtonModalEditPatient from "../../components/ButtonModalEditPatient";
 import "./EditDataPatient.css";
@@ -19,18 +15,21 @@ const EditDataPatient = () => {
     navigate(`/patient`);
   };
 
-  const baseData = {
+  const data = {
     fullName: "",
     numberMed: "",
     birthPlace: "",
     birthDate: "",
+    gender: "Male",
+    status: "Single",
+    bloodType: "A",
     phoneNum: "",
     email: "",
     address: "",
     province: "",
     city: "",
     district: "",
-    FullNameFam: "",
+    fullNameFam: "",
     relationship: "",
     numberPhone: "",
     emailFam: "",
@@ -40,20 +39,210 @@ const EditDataPatient = () => {
     districtFamily: "",
   };
 
-  const [data, setData] = useState(baseData);
-
-  const handleInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setData({
-      ...data,
-      [name]: value,
-    });
+  const dataError = {
+    fullName: "",
+    phoneNum: "",
+    email: "",
+    province: "",
+    city: "",
+    district: "",
+    fullNameFam: "",
+    numberPhone: "",
+    emailFam: "",
+    provinceFamily: "",
+    cityFamily: "",
+    districtFamily: "",
   };
 
-  const handleSubmit = () => {
-    alert(`Edit Patient Successfully`);
+  const [datas, setDatas] = useState(data);
+  const [errorMessage, setErrorMessage] = useState(dataError);
+  const regexText = /^[a-zA-Z\s]*$/;
+  const regexNumber = /^[0-9]*$/;
+  const regexEmail = /^\w+@[A-Za-z_]+?\.[a-zA-Z]{2,3}$/;
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    console.log(value);
+
+    setDatas({
+      ...datas,
+      [name]: value,
+    });
+
+    if (name === "fullName") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          fullName: "Name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+    if (name === "birthPlace") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          birthPlace: "Birthplace must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "phoneNum") {
+      if (!regexNumber.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          phoneNum: "Phone number must be number!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "email") {
+      if (!regexEmail.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          email: "Please use the correct email format!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "province") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          province: "Province name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "city") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          city: "City name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "district") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          district: "District name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "fullNameFam") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          fullNameFam: "Name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "numberPhone") {
+      if (!regexNumber.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          numberPhone: "Phone Number must be number!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "emailFam") {
+      if (!regexEmail.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          emailFam: "Please use the correct email format!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "provinceFamily") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          provinceFamily: "Province name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "cityFamily") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          cityFamily: "City name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "districtFamily") {
+      if (!regexText.test(value)) {
+        setErrorMessage({
+          ...errorMessage,
+          districtFamily: "District name must be letter!",
+        });
+      } else {
+        setErrorMessage("");
+      }
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (datas === "") {
+      alert("Input Form!");
+    } else {
+      alert(`
+      Full Name: ${datas.fullName}
+      No. Medical Record: ${datas.numberMed}
+      Birthplace: ${datas.birthPlace}
+      Birthdate: ${datas.birthDate}
+      Gender: ${datas.gender}
+      Status: ${datas.status}
+      Blood Type: ${datas.bloodType}
+      Phone Number: ${datas.phoneNum}
+      Email: ${datas.email}
+      Address: ${datas.address}
+      Province: ${datas.province}
+      City: ${datas.province}
+      District: ${datas.district}
+      Full Name Family: ${datas.fullNameFam}
+      Relationship with patient: ${datas.relationship}
+      Phone Number Family: ${datas.numberPhone}
+      Family email: ${datas.emailFam}
+      Address Family: ${datas.addressFamily}
+      Province Family: ${datas.provinceFamily}
+      City Family: ${datas.cityFamily}
+      District Family: ${datas.districtFamily}
+    `);
+    }
+    setDatas(data);
   };
 
   return (
@@ -87,12 +276,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="field-input-form-patient"
-                  type="text"
                   name="fullName"
+                  type="text"
                   required
+                  value={datas.fullName}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.fullName && (
+                  <p className="error-message">{errorMessage.fullName}</p>
+                )}
               </Col>
               <Col>
                 <Form.Label
@@ -102,11 +295,9 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
+                  disabled
                   className="field-input-form-patient"
-                  type="text"
                   name="numberMed"
-                  required
-                  onChange={handleInput}
                 />
               </Col>
             </Row>
@@ -120,12 +311,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="field-input-form-patient"
-                  type="text"
                   name="birthPlace"
+                  type="text"
                   required
+                  value={datas.birthPlace}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.birthPlace && (
+                  <p className="error-message">{errorMessage.birthPlace}</p>
+                )}
               </Col>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -136,11 +331,12 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="field-input-form-patient"
-                  type="date"
                   name="birthDate"
+                  type="date"
                   required
+                  value={datas.birthDate}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
               </Col>
             </Row>
@@ -154,9 +350,13 @@ const EditDataPatient = () => {
                   Gender
                   <span className="required-icon">*</span>
                 </Form.Label>
-                <Form.Select className="label-form-add-patient">
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
+                <Form.Select
+                  value={datas.gender}
+                  className="label-form-add-patient"
+                  onChange={handleInput}
+                >
+                  <option name="gender">Male</option>
+                  <option name="gender">Female</option>
                 </Form.Select>
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -167,9 +367,13 @@ const EditDataPatient = () => {
                   Status
                   <span className="required-icon">*</span>
                 </Form.Label>
-                <Form.Select className="label-form-add-patient">
-                  <option value="1">Single</option>
-                  <option value="2">Maried</option>
+                <Form.Select
+                  value={datas.status}
+                  className="label-form-add-patient"
+                  onChange={handleInput}
+                >
+                  <option name="status">Single</option>
+                  <option name="status">Married</option>
                 </Form.Select>
               </Col>
             </Row>
@@ -183,11 +387,15 @@ const EditDataPatient = () => {
                   Blood Type
                   <span className="required-icon">*</span>
                 </Form.Label>
-                <Form.Select className="label-form-add-patient">
-                  <option value="1">A</option>
-                  <option value="2">B</option>
-                  <option value="2">O</option>
-                  <option value="2">AB</option>
+                <Form.Select
+                  value={datas.bloodType}
+                  className="label-form-add-patient"
+                  onChange={handleInput}
+                >
+                  <option name="bloodType">A</option>
+                  <option name="bloodType">B</option>
+                  <option name="bloodType">O</option>
+                  <option name="bloodType">AB</option>
                 </Form.Select>
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -199,12 +407,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  type="text"
-                  className="label-form-add-patient"
                   name="phoneNum"
+                  type="tel"
                   required
+                  value={datas.phoneNum}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.phoneNum && (
+                  <p className="error-message">{errorMessage.phoneNum}</p>
+                )}
               </Col>
             </Row>
 
@@ -218,12 +430,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="email"
                   name="email"
+                  type="email"
                   required
+                  value={datas.email}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.email && (
+                  <p className="error-message">{errorMessage.email}</p>
+                )}
               </Col>
             </Row>
 
@@ -254,12 +470,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="province"
+                  type="text"
                   required
+                  value={datas.province}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.province && (
+                  <p className="error-message">{errorMessage.province}</p>
+                )}
               </Col>
             </Row>
 
@@ -273,12 +493,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="city"
+                  type="text"
                   required
+                  value={datas.city}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.city && (
+                  <p className="error-message">{errorMessage.city}</p>
+                )}
               </Col>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -289,12 +513,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="district"
+                  type="text"
                   required
+                  value={datas.district}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.district && (
+                  <p className="error-message">{errorMessage.district}</p>
+                )}
               </Col>
             </Row>
 
@@ -309,12 +537,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="fullNameFam"
+                  type="text"
                   required
+                  value={datas.fullNameFam}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.fullNameFam && (
+                  <p className="error-message">{errorMessage.fullNameFam}</p>
+                )}
               </Col>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -325,11 +557,12 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="relationship"
+                  type="text"
                   required
+                  value={datas.relationship}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
               </Col>
             </Row>
@@ -344,12 +577,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="numberPhone"
+                  type="tel"
                   required
+                  value={datas.numberPhone}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.numberPhone && (
+                  <p className="error-message">{errorMessage.numberPhone}</p>
+                )}
               </Col>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -360,12 +597,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="emailFam"
+                  type="email"
                   required
+                  value={datas.emailFam}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.emailFam && (
+                  <p className="error-message">{errorMessage.emailFam}</p>
+                )}
               </Col>
             </Row>
 
@@ -379,11 +620,12 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="addressFamily"
+                  type="text"
                   required
+                  value={datas.addressFamily}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
               </Col>
               <Col style={{ marginTop: "20px" }}>
@@ -395,12 +637,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="provinceFamily"
+                  type="text"
                   required
+                  value={datas.provinceFamily}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.provinceFamily && (
+                  <p className="error-message">{errorMessage.provinceFamily}</p>
+                )}
               </Col>
             </Row>
 
@@ -414,12 +660,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="cityFamily"
+                  type="text"
                   required
+                  value={datas.cityFamily}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.cityFamily && (
+                  <p className="error-message">{errorMessage.cityFamily}</p>
+                )}
               </Col>
               <Col style={{ marginTop: "20px" }}>
                 <Form.Label
@@ -430,12 +680,16 @@ const EditDataPatient = () => {
                   <span className="required-icon">*</span>
                 </Form.Label>
                 <Form.Control
-                  className="label-form-add-patient"
-                  type="text"
                   name="districtFamily"
+                  type="text"
                   required
+                  value={datas.districtFamily}
                   onChange={handleInput}
+                  className="field-input-form-patient"
                 />
+                {errorMessage.districtFamily && (
+                  <p className="error-message">{errorMessage.districtFamily}</p>
+                )}
               </Col>
             </Row>
             <div className="button-edit-form">

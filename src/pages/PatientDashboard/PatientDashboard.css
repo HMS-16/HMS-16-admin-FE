@@ -19,22 +19,6 @@
   color: black !important;
 }
 
-.button-delete-patient {
-  background-color: red !important;
-  border-style: none !important;
-  font-weight: bold !important;
-  width: 130px;
-  margin-top: 10px;
-  margin-left: 415px;
-  margin-right: 10px;
-  font-family: "Nunito", sans-serif;
-}
-
-.button-delete-patient:hover {
-  background-color: #d0e0f7 !important;
-  color: black !important;
-}
-
 .button-patient {
   display: flex;
 }
@@ -46,13 +30,8 @@
   margin-top: 15px;
   margin-left: 20px;
   height: 540px;
-  width: 1270px;
+  width: 960px;
   padding: 5px 5px;
-}
-
-.css-hyum1k-MuiToolbar-root {
-  display: flex;
-  justify-content: space-between;
 }
 
 .search-patient {

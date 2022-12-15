@@ -16,6 +16,10 @@ const PatientDashboard = () => {
     navigate(`/add/patient`);
   };
 
+  const handleChange = (value) => {
+    console.log(value);
+  };
+
   return (
     <>
       <div className="patientPage">
@@ -40,6 +44,7 @@ const PatientDashboard = () => {
                 className="search-patient"
                 type="text"
                 placeholder="Search Patient"
+                onChange={(event) => handleChange(event.target.value)}
               ></input>
             </div>
           </Toolbar>

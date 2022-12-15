@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { BsEyeFill } from "react-icons/bs";
 import { MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./DataPatient.css";
 
 const DataPatient = () => {
@@ -15,6 +16,16 @@ const DataPatient = () => {
   const patientDetail = () => {
     navigate(`/patient/detail`);
   };
+
+  const client = axios.create({
+    baseURL: "https://hms-api.fly.dev/v1/patients",
+    headers: {
+      Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzEwODA4OTAsImlhdCI6MTY3MTAzNzY5MCwiaWQiOiJlOTI0MjgxNy1kMTdmLTRkN2UtOTIxNC1iMzk2YzAwNzVmOGEiLCJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6ImFkbWluQGhtcy5jb20ifQ.qT_NUEEBPel-Uc5UDs0fP3LpXeNClX9lmjwWLlSAAgY"}`,
+    },
+  });
+
+  const response = client.get("/patients");
+  console.log(response);
 
   const rows = [
     {
@@ -86,7 +97,7 @@ const DataPatient = () => {
     {
       headerName: "Date",
       field: "date",
-      width: 170,
+      width: 120,
     },
     {
       headerName: "No.Medical Record",
@@ -96,28 +107,27 @@ const DataPatient = () => {
     {
       headerName: "Name",
       field: "name",
-      width: 250,
+      width: 170,
     },
     {
       headerName: "Age",
       field: "age",
-      width: 170,
+      width: 100,
     },
     {
       headerName: "Gender",
       field: "gender",
-      width: 150,
+      width: 120,
     },
     {
       headerName: "Status",
       field: "status",
-      width: 170,
-      type: "singleSelect",
+      width: 120,
     },
     {
       headerName: "Action",
       field: "action",
-      width: 150,
+      width: 120,
       renderCell: () => {
         return (
           <>
@@ -132,7 +142,7 @@ const DataPatient = () => {
               onClick={editPatient}
               className="nav-link"
               style={{
-                color: "#0E4597",
+                color: "#424952",
               }}
             />
           </>
@@ -145,7 +155,14 @@ const DataPatient = () => {
     <>
       <div>
         <Box className="box">
-          <DataGrid rowHeight={40} columns={columns} rows={rows} />
+          <DataGrid
+            style={{
+              fontSize: "13px",
+            }}
+            rowHeight={40}
+            columns={columns}
+            rows={rows}
+          />
         </Box>
       </div>
     </>

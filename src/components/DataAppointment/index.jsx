@@ -6,45 +6,45 @@ import "./DataAppointment.css";
 const DataAppointment = () => {
   const rows = [
     {
+      id: "1",
       date: "08/11/2022",
-      time: "09.00 - 09.30",
-      id: "U-12345",
+      shift: "09.00 - 09.30",
       medicalNumber: "ABCD12345",
       name: "Sally",
       doctor: "Dr Abed",
       status: "In Session",
     },
     {
+      id: "2",
       date: "08/11/2022",
-      time: "09.00 - 09.30",
-      id: "U-12346",
+      shift: "09.00 - 09.30",
       medicalNumber: "ABCD12346",
       name: "Wendy",
       doctor: "Dr Abed",
       status: "Waiting",
     },
     {
+      id: "3",
       date: "08/11/2022",
-      time: "09.00 - 09.30",
-      id: "U-12347",
+      shift: "09.00 - 09.30",
       medicalNumber: "ABCD12347",
       name: "Nicole",
       doctor: "Dr Abed",
       status: "Done",
     },
     {
+      id: "4",
       date: "08/11/2022",
-      time: "09.00 - 09.30",
-      id: "U-12348",
+      shift: "09.00 - 09.30",
       medicalNumber: "ABCD12348",
       name: "Giselle",
       doctor: "Dr Abed",
       status: "Waiting",
     },
     {
+      id: "5",
       date: "08/11/2022",
-      time: "09.00 - 09.30",
-      id: "U-12349",
+      shift: "09.00 - 09.30",
       medicalNumber: "ABCD12349",
       name: "Jude",
       doctor: "Dr Abed",
@@ -56,17 +56,12 @@ const DataAppointment = () => {
     {
       headerName: "Date",
       field: "date",
-      width: 150,
-    },
-    {
-      headerName: "Time",
-      field: "time",
-      width: 170,
-    },
-    {
-      headerName: "ID",
-      field: "id",
       width: 120,
+    },
+    {
+      headerName: "Shift",
+      field: "shift",
+      width: 150,
     },
     {
       headerName: "No.Medical Record",
@@ -76,17 +71,17 @@ const DataAppointment = () => {
     {
       headerName: "Name",
       field: "name",
-      width: 250,
+      width: 170,
     },
     {
       headerName: "Doctor",
       field: "doctor",
-      width: 200,
+      width: 170,
     },
     {
       headerName: "Status",
       field: "status",
-      width: 170,
+      width: 120,
     },
   ];
 

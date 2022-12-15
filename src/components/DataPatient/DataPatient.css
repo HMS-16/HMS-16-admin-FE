@@ -2,7 +2,7 @@
 
 .box {
   height: 450px;
-  width: 1232px;
+  width: 922px;
   margin-left: 15px;
   margin-top: 10px;
   font-family: "Nunito", sans-serif;
@@ -16,7 +16,7 @@
 }
 
 .nav-link:hover {
-  color: darkgrey !important;
+  color: #0d6efd !important;
 }
 
 .status {

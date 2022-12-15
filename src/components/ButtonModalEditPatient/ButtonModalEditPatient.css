@@ -6,7 +6,7 @@
 .modal-frame {
   width: 500px !important;
   height: 750px !important;
-  margin-left: 510px;
+  margin-left: 370px !important;
 }
 
 .button-modal-edit-yes-patient {
