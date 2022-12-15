@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import style from "./login.module.css";
 import Modal from "../../components/Modal";
@@ -27,6 +27,7 @@ const Login = () => {
     e.preventDefault();
     handleSubmit();
     dispatch(fetchAuth({ email: username, password: password }));
+    setTimeout(() => window.location.reload(false), 5000);
   };
 
   return (
