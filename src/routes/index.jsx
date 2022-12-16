@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddDoctor from "../pages/AddDoctor";
+import Appointment from "../pages/Appointment";
 import Dashboard from "../pages/Dashboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
-import ManageNurse from "../pages/ManageNurse";
-import ManagePatient from "../pages/ManagePatient";
-import Appointment from "../pages/Appointment";
 import DoctorDetail from "../pages/DoctorDetail";
-import PrivateRoute from "./PrivateRoute";
-import AddDoctor from "../pages/AddDoctor";
-import ProtectedRoute from "./ProtectedRoute";
+import EditDoctor from "../pages/EditDoctor";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
+import ManagePatient from "../pages/ManagePatient";
 import NoPage from "../pages/NoPage";
-import EditDoctor from "../pages/EditDoctor";
+import NurseDashboard from "../pages/NurseDashboard";
+import PrivateRoute from "./PrivateRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Routers = () => {
   return (
@@ -33,7 +33,7 @@ const Routers = () => {
             </Route>
             <Route path="add" element={<AddDoctor />} />
           </Route>
-          <Route path="nurse" element={<ManageNurse />} />
+          <Route path="nurse" element={<NurseDashboard />} />
           <Route path="appointment" element={<Appointment />} />
         </Route>
         <Route path="*" element={<NoPage />} />
