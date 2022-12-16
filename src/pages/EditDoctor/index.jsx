@@ -1,32 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { addDoctor } from "../../store/features/doctor/doctorsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { addDoctor, getDoctorById } from "../../store/features/doctor/doctorsSlice";
 
-const AddDoctor = () => {
-  const initialValue = {
-    name: "",
-    pob: "",
-    gender: "Male",
-    last_education: "",
-    exp_year: 0,
-    phone_num: "",
-    strNum: "",
-    dob: "",
-    married: false,
-    graduation_year: 0,
-    competency: "",
-    email: "",
-    address: "",
-    city: "",
-    province: "",
-    district: "",
-  };
-  const [datas, setDatas] = useState(initialValue);
-  const [validated, setValidated] = useState(false);
+const EditDoctor = () => {
+  const { str_num } = useParams();
 
   const dispatch = useDispatch();
+  const doctor = useSelector((state) => state.doctors);
+
+  useEffect(() => {
+    dispatch(getDoctorById(str_num));
+  }, [dispatch, str_num]);
+
+  const initialValue = {
+    name: doctor.data.name,
+    pob: doctor.data.pob,
+    gender: doctor.data.gender,
+    last_education: doctor.data.last_education,
+    exp_year: doctor.data.exp_year,
+    phone_num: doctor.data.phone_num,
+    strNum: doctor.data.str_num,
+    dob: doctor.data.dob,
+    married: doctor.data.married,
+    graduation_year: doctor.data.graduation_year,
+    competency: doctor.data.competency,
+    email: doctor.data.email,
+    address: doctor.data.address,
+  };
+
+  const [datas, setDatas] = useState(initialValue);
+  // const array = doctor.data.address.split(", ");
+
+  // console.log(array);
+
+  const [validated, setValidated] = useState(false);
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
@@ -65,12 +74,13 @@ const AddDoctor = () => {
       [name]: value,
     });
   };
+  // console.log(datas);
 
   return (
     <>
       <Row style={{ height: "100vh", overflow: "auto" }}>
         <Row className="ps-4 mt-4 text-start">
-          <p className="pt-2 fs-4 fw-bold">Add Doctor</p>
+          <p className="pt-2 fs-4 fw-bold">Edit Doctor Profile</p>
 
           {/* Information Doctor Field */}
           <p className="pt-2 fs-5 fw-bold">Information Doctor</p>
@@ -83,6 +93,7 @@ const AddDoctor = () => {
                     required
                     type="text"
                     name="name"
+                    defaultValue={doctor.data.name}
                     value={datas.name}
                     placeholder="Enter full name"
                     onChange={handleInput}
@@ -282,7 +293,7 @@ const AddDoctor = () => {
             </Row>
             <Stack direction="horizontal" gap={3} className="d-flex my-4 justify-content-end">
               <Button variant="blue" type="submit">
-                Add
+                Save
               </Button>
               <Link style={{ textDecoration: "none" }} to="/doctor">
                 <Button variant="outBlue">Cancel</Button>
@@ -295,4 +306,4 @@ const AddDoctor = () => {
   );
 };
 
-export default AddDoctor;
+export default EditDoctor;

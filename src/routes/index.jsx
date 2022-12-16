@@ -12,6 +12,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import NoPage from "../pages/NoPage";
+import EditDoctor from "../pages/EditDoctor";
 
 const Routers = () => {
   return (
@@ -26,7 +27,10 @@ const Routers = () => {
           <Route path="patient" element={<ManagePatient />} />
           <Route path="doctor">
             <Route index element={<DoctorDashboard />} />
-            <Route path=":str_num" element={<DoctorDetail />} />
+            <Route path=":str_num">
+              <Route index element={<DoctorDetail />} />
+              <Route path="edit" element={<EditDoctor />} />
+            </Route>
             <Route path="add" element={<AddDoctor />} />
           </Route>
           <Route path="nurse" element={<ManageNurse />} />
