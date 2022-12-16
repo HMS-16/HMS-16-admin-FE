@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { getDoctorById } from "../../store/features/doctor/doctorsSlice";
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { Button, Col, Container, Image, Nav, Row } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DoctorImage from "../../assets/images/doctor.png";
 import { useState } from "react";
-import ModalDeleteteDoctor from "../../components/ModalDeleteDoctor";
+import ModalDeleteDoctor from "../../components/ModalDeleteDoctor";
 
 const DoctorDetail = () => {
   const { str_num } = useParams();
@@ -41,10 +41,12 @@ const DoctorDetail = () => {
               >
                 <MdDelete /> Delete Profile
               </Button>
-              <Button variant="outBlue" className="d-flex align-items-center justify-content-center" size="md">
-                <MdEdit /> Edit Profile
-              </Button>
-              <ModalDeleteteDoctor str_num={str_num} show={modalShow} onHide={() => setModalShow(false)} />
+              <Nav.Link href={`/doctor/${str_num}/edit`}>
+                <Button variant="outBlue" className="d-flex align-items-center justify-content-center" size="md">
+                  <MdEdit /> Edit Profile
+                </Button>
+              </Nav.Link>
+              <ModalDeleteDoctor str_num={str_num} show={modalShow} onHide={() => setModalShow(false)} />
             </Col>
           </Row>
 
@@ -89,9 +91,9 @@ const DoctorDetail = () => {
                   )}
                   <p className="fs-5 fw-bold text-dark">Status</p>
                   {doctor.data.married ? (
-                    <p className="fs-5 pb-4 text-dark">Single</p>
-                  ) : (
                     <p className="fs-5 pb-4 text-dark">Married</p>
+                  ) : (
+                    <p className="fs-5 pb-4 text-dark">Single</p>
                   )}
                   <p className="fs-5 fw-bold text-dark">Last Education</p>
                   {doctor.data.last_education ? (

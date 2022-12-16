@@ -14,7 +14,7 @@ const AddDoctor = () => {
     phone_num: "",
     strNum: "",
     dob: "",
-    married: true,
+    married: false,
     graduation_year: 0,
     competency: "",
     email: "",
@@ -180,8 +180,8 @@ const AddDoctor = () => {
                   <Form.Label>Married</Form.Label>
                   <Form.Select name="married" onChange={handleInput}>
                     <option disabled>Select married</option>
-                    <option value="true">Single</option>
-                    <option value="false">Married</option>
+                    <option value="false">Single</option>
+                    <option value="true">Married</option>
                   </Form.Select>
                 </Form.Group>
                 <Form.Group controlId="graduation_year" className="mb-3">

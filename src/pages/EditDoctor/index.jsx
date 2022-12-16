@@ -1,32 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { addDoctor } from "../../store/features/doctor/doctorsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { addDoctor, getDoctorById } from "../../store/features/doctor/doctorsSlice";
 
 const EditDoctor = () => {
-  const initialValue = {
-    name: "",
-    pob: "",
-    gender: "Male",
-    last_education: "",
-    exp_year: 0,
-    phone_num: "",
-    strNum: "",
-    dob: "",
-    married: true,
-    graduation_year: 0,
-    competency: "",
-    email: "",
-    address: "",
-    city: "",
-    province: "",
-    district: "",
-  };
-  const [datas, setDatas] = useState(initialValue);
-  const [validated, setValidated] = useState(false);
+  const { str_num } = useParams();
 
   const dispatch = useDispatch();
+  const doctor = useSelector((state) => state.doctors);
+
+  useEffect(() => {
+    dispatch(getDoctorById(str_num));
+  }, [dispatch, str_num]);
+
+  const initialValue = {
+    name: doctor.data.name,
+    pob: doctor.data.pob,
+    gender: doctor.data.gender,
+    last_education: doctor.data.last_education,
+    exp_year: doctor.data.exp_year,
+    phone_num: doctor.data.phone_num,
+    strNum: doctor.data.str_num,
+    dob: doctor.data.dob,
+    married: doctor.data.married,
+    graduation_year: doctor.data.graduation_year,
+    competency: doctor.data.competency,
+    email: doctor.data.email,
+    address: doctor.data.address,
+  };
+
+  const [datas, setDatas] = useState(initialValue);
+  // const array = doctor.data.address.split(", ");
+
+  // console.log(array);
+
+  const [validated, setValidated] = useState(false);
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
@@ -65,6 +74,7 @@ const EditDoctor = () => {
       [name]: value,
     });
   };
+  // console.log(datas);
 
   return (
     <>
@@ -83,6 +93,7 @@ const EditDoctor = () => {
                     required
                     type="text"
                     name="name"
+                    defaultValue={doctor.data.name}
                     value={datas.name}
                     placeholder="Enter full name"
                     onChange={handleInput}
@@ -180,8 +191,8 @@ const EditDoctor = () => {
                   <Form.Label>Married</Form.Label>
                   <Form.Select name="married" onChange={handleInput}>
                     <option disabled>Select married</option>
-                    <option value="true">Single</option>
-                    <option value="false">Married</option>
+                    <option value="false">Single</option>
+                    <option value="true">Married</option>
                   </Form.Select>
                 </Form.Group>
                 <Form.Group controlId="graduation_year" className="mb-3">

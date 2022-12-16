@@ -27,9 +27,11 @@ const Routers = () => {
           <Route path="patient" element={<ManagePatient />} />
           <Route path="doctor">
             <Route index element={<DoctorDashboard />} />
-            <Route path=":str_num" element={<DoctorDetail />} />
+            <Route path=":str_num">
+              <Route index element={<DoctorDetail />} />
+              <Route path="edit" element={<EditDoctor />} />
+            </Route>
             <Route path="add" element={<AddDoctor />} />
-            <Route path="edit" element={<EditDoctor />} />
           </Route>
           <Route path="nurse" element={<ManageNurse />} />
           <Route path="appointment" element={<Appointment />} />
