@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import Navbar from "../../components/Navbar/index";
+import Header from "../../components/Header/index";
 import { Container, Col, Form, Button, Row } from "react-bootstrap";
 import "./CreateAppointment.css";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +65,7 @@ const CreateAppointment = () => {
   return (
     <>
       <div>
-        <Navbar />
+        <Header />
         <Container>
           <h5 className="create-appointment-title">Create Appointment</h5>
           <hr />

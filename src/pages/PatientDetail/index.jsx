@@ -1,5 +1,5 @@
 import { React } from "react";
-import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
 import { GoCloudDownload } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -13,22 +13,19 @@ import "./PatientDetail.css";
 
 const PatientDetail = () => {
   const navigate = useNavigate();
-  const editDetailPatient = () => {
-    navigate(`/edit/detail/patient`);
-  };
 
   const patientHistoryCondition = () => {
-    navigate(`/patient/history/condition`);
+    navigate(`/patient/history`);
   };
 
   const editDataPatient = () => {
-    navigate(`/edit/data/patient`);
+    navigate(`/patient/edit`);
   };
 
   return (
     <>
       <div className="patient-detail-page">
-        <Navbar />
+        <Header />
         <div>
           <h5 className="patient-title" style={{ marginLeft: "20px" }}>
             Patient Detail

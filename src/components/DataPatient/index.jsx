@@ -1,113 +1,45 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import { BsEyeFill } from "react-icons/bs";
 import { MdEdit } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import "./DataPatient.css";
+import { getPatient } from "../../store/features/patients/patientsSlice";
 
 const DataPatient = () => {
+  const dispatch = useDispatch();
+  const { data: patient } = useSelector((state) => state.patients);
+
+  useEffect(() => {
+    dispatch(getPatient());
+  }, [dispatch]);
+
   const navigate = useNavigate();
   const editPatient = () => {
-    navigate(`/edit/data/patient`);
+    navigate(`edit`);
   };
 
   const patientDetail = () => {
-    navigate(`/patient/detail`);
+    navigate(`detail`);
   };
-
-  const client = axios.create({
-    baseURL: "https://hms-api.fly.dev/v1/patients",
-    headers: {
-      Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzEwODA4OTAsImlhdCI6MTY3MTAzNzY5MCwiaWQiOiJlOTI0MjgxNy1kMTdmLTRkN2UtOTIxNC1iMzk2YzAwNzVmOGEiLCJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6ImFkbWluQGhtcy5jb20ifQ.qT_NUEEBPel-Uc5UDs0fP3LpXeNClX9lmjwWLlSAAgY"}`,
-    },
-  });
-
-  const response = client.get("/patients");
-  console.log(response);
-
-  const rows = [
-    {
-      date: "21/01/2022",
-      id: "1",
-      medicalNumber: "ABC1234567",
-      name: "Sally",
-      age: "21",
-      gender: "Female",
-      status: "Process",
-    },
-    {
-      date: "21/01/2022",
-      id: "2",
-      medicalNumber: "ABC1234567",
-      name: "Giselle",
-      age: "21",
-      gender: "Female",
-      status: "Done",
-    },
-    {
-      date: "21/01/2022",
-      id: "3",
-      medicalNumber: "ABC1234567",
-      name: "Wendy",
-      age: "22",
-      gender: "Female",
-      status: "Process",
-    },
-    {
-      date: "21/01/2022",
-      id: "4",
-      medicalNumber: "ABC1234567",
-      name: "Bryan",
-      age: "19",
-      gender: "Male",
-      status: "Done",
-    },
-    {
-      date: "21/01/2022",
-      id: "5",
-      medicalNumber: "ABC1234567",
-      name: "Nicole",
-      age: "18",
-      gender: "Male",
-      status: "Process",
-    },
-    {
-      date: "21/01/2022",
-      id: "6",
-      medicalNumber: "ABC1234567",
-      name: "Jude",
-      age: "22",
-      gender: "Female",
-      status: "Done",
-    },
-    {
-      date: "21/01/2022",
-      id: "7",
-      medicalNumber: "ABC1234567",
-      name: "Zeph",
-      age: "15",
-      gender: "Male",
-      status: "Process",
-    },
-  ];
 
   const columns = [
     {
       headerName: "Date",
       field: "date",
-      width: 120,
+      width: 170,
     },
     {
       headerName: "No.Medical Record",
-      field: "medicalNumber",
-      width: 170,
+      field: "id",
+      width: 150,
     },
     {
       headerName: "Name",
       field: "name",
-      width: 170,
+      width: 120,
     },
     {
       headerName: "Age",
@@ -126,11 +58,11 @@ const DataPatient = () => {
     },
     {
       headerName: "Action",
-      field: "action",
-      width: 120,
+      width: 100,
       renderCell: () => {
         return (
           <>
+            {/* <NavLink to={`/patient/detail/${APIPatients.id}`}> */}
             <BsEyeFill
               onClick={patientDetail}
               className="nav-link"
@@ -138,6 +70,8 @@ const DataPatient = () => {
                 color: "#424952",
               }}
             />
+            {/* </NavLink> */}
+
             <MdEdit
               onClick={editPatient}
               className="nav-link"
@@ -161,7 +95,7 @@ const DataPatient = () => {
             }}
             rowHeight={40}
             columns={columns}
-            rows={rows}
+            rows={patient}
           />
         </Box>
       </div>

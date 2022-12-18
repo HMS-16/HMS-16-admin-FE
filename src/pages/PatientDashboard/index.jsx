@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./PatientDashboard.css";
-import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Button } from "react-bootstrap";
 import DataPatient from "../../components/DataPatient";
@@ -13,7 +13,7 @@ const PatientDashboard = () => {
 
   const navigate = useNavigate();
   const AddPatient = () => {
-    navigate(`/add/patient`);
+    navigate(`add`);
   };
 
   const handleChange = (value) => {
@@ -23,7 +23,7 @@ const PatientDashboard = () => {
   return (
     <>
       <div className="patientPage">
-        <Navbar />
+        <Header />
         <div className="button-patient">
           <Button onClick={AddPatient} className="button-add-patient">
             <AiOutlinePlus
@@ -36,7 +36,6 @@ const PatientDashboard = () => {
             Add Patient
           </Button>
         </div>
-
         <div className="dataPatient">
           <Toolbar>
             <div className="button-patient">

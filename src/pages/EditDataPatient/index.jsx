@@ -1,6 +1,6 @@
 import { React, useState } from "react";
+import Header from "../../components/Header/index";
 import { Container, Col, Button, Form, Row } from "react-bootstrap";
-import Navbar from "../../components/Navbar";
 import ButtonModalEditPatient from "../../components/ButtonModalEditPatient";
 import "./EditDataPatient.css";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const EditDataPatient = () => {
   const navigate = useNavigate();
   const changeAppointment = () => {
-    navigate(`/change/appointment`);
+    navigate(`/appointment/change`);
   };
 
   const patientDashboard = () => {
@@ -248,7 +248,7 @@ const EditDataPatient = () => {
   return (
     <>
       <div className="form-patient-page">
-        <Navbar />
+        <Header />
         <h5 className="edit-patient-title" style={{ display: "flex" }}>
           Edit Patient
         </h5>

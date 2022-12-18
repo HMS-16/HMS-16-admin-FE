@@ -2,19 +2,19 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { AiOutlinePlus } from "react-icons/ai";
 import DataAppointment from "../../components/DataAppointment";
-import Navbar from "../../components/Navbar";
+import Header from "../../components/Header/index";
 import "./AppointmentDashboard.css";
 import { useNavigate } from "react-router-dom";
 
 const AppointmentDashboard = () => {
   const navigate = useNavigate();
   const createAppointment = () => {
-    navigate(`/create/appointment`);
+    navigate(`create`);
   };
 
   return (
     <div className="appointment-dashboard-page">
-      <Navbar />
+      <Header />
       <Button onClick={createAppointment} className="add-appointment-button">
         <AiOutlinePlus
           style={{

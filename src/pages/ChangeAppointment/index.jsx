@@ -1,14 +1,14 @@
 import { React, useState } from "react";
 import { Col, Container, Button, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
+import Header from "../../components/Header/index";
 import "./ChangeAppointment.css";
 import ButtonModalEditPatient from "../../components/ButtonModalEditPatient";
 
 const ChangeAppointment = () => {
   const navigate = useNavigate();
   const patientInformation = () => {
-    navigate(`/edit/data/patient`);
+    navigate(`/patient/edit`);
   };
 
   const appointmentDashboard = () => {
@@ -70,7 +70,7 @@ const ChangeAppointment = () => {
   return (
     <>
       <div className="change-appointment-page">
-        <Navbar />
+        <Header />
         <h5 className="edit-patient-title" style={{ display: "flex" }}>
           Edit Patient
         </h5>
