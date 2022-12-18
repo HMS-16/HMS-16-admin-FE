@@ -1,23 +1,26 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddDoctor from "../pages/AddDoctor";
+import AddPatient from "../pages/AddPatient";
+import Appointment from "../pages/Appointment";
+import AppointmentDashboard from "../pages/AppointmentDashboard";
+import ChangeAppointment from "../pages/ChangeAppointment";
+import CreateAppointment from "../pages/CreateAppointment";
 import Dashboard from "../pages/Dashboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
-import ManageNurse from "../pages/ManageNurse";
-import PatientDashboard from "../pages/PatientDashboard/index";
-import AddPatient from "../pages/AddPatient";
-import EditDataPatient from "../pages/EditDataPatient";
-import ChangeAppointment from "../pages/ChangeAppointment";
-import PatientDetail from "../pages/PatientDetail";
-import AppointmentDashboard from "../pages/AppointmentDashboard";
-import PatientHistoryCondition from "../components/PatientHistoryCondition";
-import CreateAppointment from "../pages/CreateAppointment";
 import DoctorDetail from "../pages/DoctorDetail";
-import PrivateRoute from "./PrivateRoute";
-import AddDoctor from "../pages/AddDoctor";
-import ProtectedRoute from "./ProtectedRoute";
+import EditDataPatient from "../pages/EditDataPatient";
+import EditDoctor from "../pages/EditDoctor";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
+import ManagePatient from "../pages/ManagePatient";
 import NoPage from "../pages/NoPage";
+import NurseDashboard from "../pages/NurseDashboard";
+import PatientDashboard from "../pages/PatientDashboard/index";
+import PatientDetail from "../pages/PatientDetail";
+import PatientHistoryCondition from "../components/PatientHistoryCondition";
+import PrivateRoute from "./PrivateRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Routers = () => {
   return (
@@ -42,11 +45,12 @@ const Routers = () => {
 
           <Route path="doctor">
             <Route index element={<DoctorDashboard />} />
-            <Route path=":str_num" element={<DoctorDetail />} />
+            <Route path=":str_num">
+              <Route index element={<DoctorDetail />} />
+              <Route path="edit" element={<EditDoctor />} />
+            </Route>
             <Route path="add" element={<AddDoctor />} />
           </Route>
-
-          <Route path="nurse" element={<ManageNurse />} />
 
           <Route path="appointment">
             <Route index element={<AppointmentDashboard />} />
@@ -54,6 +58,8 @@ const Routers = () => {
             <Route path="create" element={<CreateAppointment />} />
           </Route>
 
+          <Route path="nurse" element={<NurseDashboard />} />
+          <Route path="appointment" element={<Appointment />} />
         </Route>
         <Route path="*" element={<NoPage />} />
       </Routes>
