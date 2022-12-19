@@ -16,14 +16,17 @@ export const getDoctor = createAsyncThunk("fetch/doctors", async () => {
   }
 });
 
-export const getDoctorById = createAsyncThunk("fetch/doctorById", async (str_num) => {
-  try {
-    const response = await APIDoctor.getDoctorById(str_num);
-    return response;
-  } catch (err) {
-    console.log(err);
+export const getDoctorById = createAsyncThunk(
+  "fetch/doctorById",
+  async (str_num) => {
+    try {
+      const response = await APIDoctor.getDoctorById(str_num);
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
   }
-});
+);
 
 export const addDoctor = createAsyncThunk("add/doctor", async (data) => {
   try {
@@ -34,14 +37,17 @@ export const addDoctor = createAsyncThunk("add/doctor", async (data) => {
   }
 });
 
-export const deleteDoctor = createAsyncThunk("delete/doctor", async (str_num) => {
-  try {
-    const response = await APIDoctor.deleteDoctor(str_num);
-    return response;
-  } catch (err) {
-    console.log(err);
+export const deleteDoctor = createAsyncThunk(
+  "delete/doctor",
+  async (str_num) => {
+    try {
+      const response = await APIDoctor.deleteDoctor(str_num);
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
   }
-});
+);
 
 export const editDoctor = createAsyncThunk("edit/doctor", async (data) => {
   try {

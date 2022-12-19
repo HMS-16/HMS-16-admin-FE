@@ -1,0 +1,82 @@
+.container-modal-edit-patient {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.modal-frame {
+  width: 500px !important;
+  height: 750px !important;
+  margin-left: 370px !important;
+}
+
+.button-modal-edit-yes-patient {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  width: 90px;
+  height: 40px;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.button-modal-edit-yes-patient:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.button-modal-edit-no-patient {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  width: 90px;
+  height: 40px;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: white !important;
+  color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin-right: 40px;
+  margin-left: 5px !important;
+}
+
+.button-modal-edit-no-patient:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.vector-modal-edit {
+  margin-left: 80px;
+  height: 300px;
+  width: 300px;
+}
+
+.modal-footer {
+  display: flex !important;
+  justify-content: center !important;
+  margin-left: 35px !important;
+}
+
+.button-save-form {
+  margin-top: 30px !important;
+  margin-bottom: 15px !important;
+  margin-right: 10px !important;
+  width: 90px !important;
+  height: 30px !important;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.button-save-form:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}

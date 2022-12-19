@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.add-appointment {
+  background-color: #0e4597 !important;
+  border-style: none !important;
+  padding: 5px !important;
+  width: 180px !important;
+  height: 40px !important;
+  margin-top: 20px !important;
+  margin-right: 240px !important;
+  font-weight: 500 !important;
+  font-family: "Nunito", sans-serif !important;
+}
+
+.appointment-title {
+  font-size: 23px;
+  margin-left: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.today-appointment {
+  padding: 5px 2px 3px 2px;
+  font-weight: 600;
+}
+
+.box-appointment {
+  height: 400px;
+  width: 1232px;
+  margin-left: 16px;
+  margin-top: 10px;
+  font-family: "Nunito", sans-serif;
+  margin-right: 16px;
+}
+
+.dataAppointment {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #29292926;
+  margin-left: 20px;
+  height: 480px;
+  width: 934px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.input-event {
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.form-input-event {
+  border-radius: 1px solid black;
+  margin-bottom: 5px !important;
+}
+
+.input-start-date {
+  margin-bottom: 5px !important;
+  width: 20%;
+}
+
+.button-add-event {
+  width: 17% !important;
+  background-color: #0e4597 !important;
+  color: white !important;
+  border-radius: 5px;
+  border-style: none !important;
+  padding: 5px !important;
+  width: 170px;
+  height: 40px;
+  margin-top: 20px;
+  margin-right: 45px;
+  font-weight: 500 !important;
+  font-family: "Nunito", sans-serif;
+}
+
+.button-add-event:hover {
+  background-color: #d0e0f7 !important;
+  color: black !important;
+}
+
+.rbc-header {
+  background-color: #d0e0f7 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.appointment-page {
+  height: 100vh;
+  overflow: auto;
+}
+
+.add-appointment-button {
+  display: flex !important;
+  justify-content: end !important;
+  background-color: #0e4597 !important;
+  border-style: none !important;
+  width: 200px !important;
+  height: 40px !important;
+  padding: 8px 12px 5px 0px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+  font-weight: 500 !important;
+  font-family: "Nunito", sans-serif;
+}
+
+.add-appointment-button:hover {
+  background-color: #d0e0f7 !important;
+  color: black !important;
+}

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.add-appointment-button {
+  display: flex !important;
+  justify-content: end !important;
+  background-color: #0e4597 !important;
+  border-style: none !important;
+  width: 200px !important;
+  height: 40px !important;
+  padding: 8px 12px 5px 0px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+  font-weight: 500 !important;
+  font-family: "Nunito", sans-serif;
+  margin-left: 20px !important;
+}
+
+.add-appointment-button:hover {
+  background-color: #d0e0f7 !important;
+  color: black !important;
+}

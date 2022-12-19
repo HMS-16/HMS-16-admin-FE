@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.edit-patient-title {
+  font-size: 23px;
+  margin-left: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bolder !important;
+  font-family: "Nunito", sans-serif !important;
+}
+
+.form-input {
+  margin-left: 20px;
+}
+
+.input-form {
+  margin-top: 5px;
+}
+
+.button-cancel-form:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.button-cancel-form {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  width: 90px;
+  height: 30px;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: white !important;
+  color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin-right: 40px;
+}
+
+.select-form {
+  height: 30px !important;
+  margin-right: 14px;
+  padding: 16px 16px 16px 10px;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  width: 600px;
+  margin-bottom: 15px;
+  color: black;
+  font-size: 15px !important;
+}
+
+.edit-patient-page {
+  height: 100vh;
+  overflow: auto;
+}
+
+.option-edit-patient {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+.option-edit-patient-information {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.option-edit-patient-appointment {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.option-edit-patient-information:hover {
+  color: #1153b5;
+}
+
+.option-edit-patient-appointment:hover {
+  color: #1153b5;
+}
+
+.button-edit-form {
+  display: flex;
+  justify-content: end;
+}
+
+.button-cancel-form {
+  margin-left: 20px !important;
+}
+
+.edit-patient-title-label {
+  display: flex !important;
+  justify-content: start !important;
+  font-weight: 700;
+  line-height: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-top: 25px;
+  cursor: pointer;
+}
