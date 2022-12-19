@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { addDoctor, getDoctorById } from "../../store/features/doctor/doctorsSlice";
+import { editDoctor, getDoctorById } from "../../store/features/doctor/doctorsSlice";
 
 const EditDoctor = () => {
   const { str_num } = useParams();
@@ -15,25 +15,25 @@ const EditDoctor = () => {
   }, [dispatch, str_num]);
 
   const initialValue = {
-    name: doctor.data.name,
-    pob: doctor.data.pob,
-    gender: doctor.data.gender,
-    last_education: doctor.data.last_education,
-    exp_year: doctor.data.exp_year,
-    phone_num: doctor.data.phone_num,
-    strNum: doctor.data.str_num,
-    dob: doctor.data.dob,
-    married: doctor.data.married,
-    graduation_year: doctor.data.graduation_year,
-    competency: doctor.data.competency,
-    email: doctor.data.email,
-    address: doctor.data.address,
+    name: "",
+    pob: "",
+    gender: "Male",
+    last_education: "",
+    exp_year: "",
+    phone_num: "",
+    str_num: str_num,
+    dob: "",
+    married: "",
+    graduation_year: "",
+    competency: "",
+    email: "",
+    address: "",
+    city: "",
+    province: "",
+    district: "",
   };
 
   const [datas, setDatas] = useState(initialValue);
-  // const array = doctor.data.address.split(", ");
-
-  // console.log(array);
 
   const [validated, setValidated] = useState(false);
 
@@ -50,9 +50,9 @@ const EditDoctor = () => {
         last_education: datas.last_education,
         exp_year: parseInt(datas.exp_year),
         phone_num: datas.phone_num,
-        strNum: datas.strNum,
+        str_num: datas.str_num,
         dob: datas.dob,
-        married: datas.married,
+        married: Boolean(datas.married),
         graduation_year: parseInt(datas.graduation_year),
         competency: datas.competency,
         email: datas.email,
@@ -61,7 +61,7 @@ const EditDoctor = () => {
         province: datas.province,
         district: datas.district,
       };
-      dispatch(addDoctor(data));
+      dispatch(editDoctor(data));
       setDatas(initialValue);
     }
     setValidated(true);
@@ -74,7 +74,7 @@ const EditDoctor = () => {
       [name]: value,
     });
   };
-  // console.log(datas);
+  console.log(datas);
 
   return (
     <>
@@ -93,9 +93,8 @@ const EditDoctor = () => {
                     required
                     type="text"
                     name="name"
-                    defaultValue={doctor.data.name}
                     value={datas.name}
-                    placeholder="Enter full name"
+                    placeholder={doctor.data.name}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert full name.</Form.Control.Feedback>
@@ -107,7 +106,7 @@ const EditDoctor = () => {
                     type="text"
                     name="pob"
                     value={datas.pob}
-                    placeholder="Enter birth place"
+                    placeholder={doctor.data.pob}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert birth place.</Form.Control.Feedback>
@@ -127,7 +126,7 @@ const EditDoctor = () => {
                     type="text"
                     name="last_education"
                     value={datas.last_education}
-                    placeholder="Enter last education"
+                    placeholder={doctor.data.last_education}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert last education.</Form.Control.Feedback>
@@ -141,7 +140,7 @@ const EditDoctor = () => {
                     max={50}
                     name="exp_year"
                     value={datas.exp_year}
-                    placeholder="Enter the duration of long experience"
+                    placeholder={doctor.data.exp_year}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert long experience.</Form.Control.Feedback>
@@ -153,7 +152,7 @@ const EditDoctor = () => {
                     type="tel"
                     name="phone_num"
                     value={datas.phone_num}
-                    placeholder="Enter phone number (08XX)"
+                    placeholder={doctor.data.phone_num}
                     pattern="[0-9]{4}[0-9]{4}[0-9]{4}"
                     onChange={handleInput}
                   />
@@ -163,14 +162,13 @@ const EditDoctor = () => {
                 </Form.Group>
               </Col>
               <Col>
-                <Form.Group controlId="strNum" className="mb-3">
+                <Form.Group controlId="str_num" className="mb-3">
                   <Form.Label>Register Number</Form.Label>
                   <Form.Control
-                    required
+                    disabled
                     type="text"
-                    name="strNum"
-                    value={datas.strNum}
-                    placeholder="Enter register number"
+                    name="str_num"
+                    placeholder={doctor.data.str_num}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert register number.</Form.Control.Feedback>
@@ -182,7 +180,7 @@ const EditDoctor = () => {
                     type="date"
                     name="dob"
                     value={datas.dob}
-                    placeholder="Enter birth day"
+                    placeholder={doctor.data.dob}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please choose birth date.</Form.Control.Feedback>
@@ -191,7 +189,7 @@ const EditDoctor = () => {
                   <Form.Label>Married</Form.Label>
                   <Form.Select name="married" onChange={handleInput}>
                     <option disabled>Select married</option>
-                    <option value="false">Single</option>
+                    <option value="">Single</option>
                     <option value="true">Married</option>
                   </Form.Select>
                 </Form.Group>
@@ -203,7 +201,7 @@ const EditDoctor = () => {
                     min={0}
                     name="graduation_year"
                     value={datas.graduation_year}
-                    placeholder="Enter graduation year"
+                    placeholder={doctor.data.graduation_year}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert graduation year.</Form.Control.Feedback>
@@ -215,7 +213,7 @@ const EditDoctor = () => {
                     type="text"
                     name="competency"
                     value={datas.competency}
-                    placeholder="Enter competency"
+                    placeholder={doctor.data.competency}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert competency.</Form.Control.Feedback>
@@ -227,7 +225,7 @@ const EditDoctor = () => {
                     type="email"
                     name="email"
                     value={datas.email}
-                    placeholder="Enter email"
+                    placeholder={doctor.data.email}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert valid email.</Form.Control.Feedback>
@@ -246,7 +244,7 @@ const EditDoctor = () => {
                     type="text"
                     name="address"
                     value={datas.address}
-                    placeholder="Enter address"
+                    placeholder={doctor.data.address}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert valid address.</Form.Control.Feedback>
@@ -258,7 +256,7 @@ const EditDoctor = () => {
                     type="text"
                     name="city"
                     value={datas.city}
-                    placeholder="Enter city"
+                    placeholder={doctor.data.city}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert valid city.</Form.Control.Feedback>
@@ -272,7 +270,7 @@ const EditDoctor = () => {
                     type="text"
                     name="province"
                     value={datas.province}
-                    placeholder="Enter province"
+                    placeholder={doctor.data.province}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert valid province.</Form.Control.Feedback>
@@ -284,7 +282,7 @@ const EditDoctor = () => {
                     type="text"
                     name="district"
                     value={datas.district}
-                    placeholder="Enter district"
+                    placeholder={doctor.data.district}
                     onChange={handleInput}
                   />
                   <Form.Control.Feedback type="invalid">Please insert valid district.</Form.Control.Feedback>

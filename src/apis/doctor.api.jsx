@@ -47,7 +47,7 @@ const APIDoctor = {
   async editDoctor(data) {
     const str_num = data.str_num;
     try {
-      const response = await config.delete(`/doctors/${str_num}`, data, { headers });
+      const response = await config.put(`/doctors/${str_num}`, data, { headers });
       return response.data.data;
     } catch (err) {
       const { message } = err.response.data;

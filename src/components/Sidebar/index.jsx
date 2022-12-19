@@ -35,18 +35,7 @@ const Sidebar = ({ children }) => {
       icon: <MdCalendarToday />,
     },
   ];
-  // const toolItem = [
-  //   {
-  //     path: "/settings",
-  //     name: "Settings",
-  //     icon: <MdSettings />,
-  //   },
-  //   {
-  //     path: "/logout",
-  //     name: "Logout",
-  //     icon: <MdLogout />,
-  //   },
-  // ];
+
   return (
     <div className="fluid">
       <div style={{ width: isOpen ? "250px" : "70px" }} className="d-flex flex-column sidebar">

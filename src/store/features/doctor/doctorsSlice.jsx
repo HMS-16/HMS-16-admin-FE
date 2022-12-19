@@ -43,6 +43,15 @@ export const deleteDoctor = createAsyncThunk("delete/doctor", async (str_num) =>
   }
 });
 
+export const editDoctor = createAsyncThunk("edit/doctor", async (data) => {
+  try {
+    const response = await APIDoctor.editDoctor(data);
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 const doctorsSlice = createSlice({
   name: "doctors",
   initialState,
@@ -89,6 +98,17 @@ const doctorsSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(deleteDoctor.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(editDoctor.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(editDoctor.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.data = action.payload;
+      })
+      .addCase(editDoctor.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

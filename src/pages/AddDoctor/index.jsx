@@ -12,9 +12,9 @@ const AddDoctor = () => {
     last_education: "",
     exp_year: 0,
     phone_num: "",
-    strNum: "",
+    str_num: "",
     dob: "",
-    married: false,
+    married: "",
     graduation_year: 0,
     competency: "",
     email: "",
@@ -41,9 +41,9 @@ const AddDoctor = () => {
         last_education: datas.last_education,
         exp_year: parseInt(datas.exp_year),
         phone_num: datas.phone_num,
-        strNum: datas.strNum,
+        str_num: datas.str_num,
         dob: datas.dob,
-        married: datas.married,
+        married: Boolean(datas.married),
         graduation_year: parseInt(datas.graduation_year),
         competency: datas.competency,
         email: datas.email,
@@ -65,6 +65,7 @@ const AddDoctor = () => {
       [name]: value,
     });
   };
+  console.log(datas);
 
   return (
     <>
@@ -152,13 +153,13 @@ const AddDoctor = () => {
                 </Form.Group>
               </Col>
               <Col>
-                <Form.Group controlId="strNum" className="mb-3">
+                <Form.Group controlId="str_num" className="mb-3">
                   <Form.Label>Register Number</Form.Label>
                   <Form.Control
                     required
                     type="text"
-                    name="strNum"
-                    value={datas.strNum}
+                    name="str_num"
+                    value={datas.str_num}
                     placeholder="Enter register number"
                     onChange={handleInput}
                   />
