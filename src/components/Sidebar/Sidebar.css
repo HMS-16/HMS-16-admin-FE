@@ -1,0 +1,46 @@
+.fluid {
+  display: flex;
+}
+main {
+  width: 100%;
+  padding: 0px 20px;
+}
+.sidebar {
+  background: #0e4597;
+  color: rgb(255, 255, 255);
+  height: 100vh;
+  transition: all 0.5s;
+}
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+.bars {
+  font-size: 20px;
+  cursor: pointer;
+}
+.link {
+  display: flex !important;
+  color: rgb(255, 255, 255) !important;
+  padding: 20px 20px !important;
+  gap: 15px !important;
+  transition: all 0.5s !important;
+  text-decoration: none !important;
+}
+.link:hover {
+  background: #608cce !important;
+  color: rgb(255, 255, 255) !important;
+  transition: all 0.5s !important;
+}
+.active {
+  background: #608cce !important;
+  color: rgb(255, 255, 255) !important;
+}
+.icon,
+.link_text {
+  font-size: 20px;
+}
+hr {
+  border-width: 2px !important;
+}
