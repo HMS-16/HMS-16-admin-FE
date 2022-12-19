@@ -14,7 +14,7 @@ const AddDoctor = () => {
     phone_num: "",
     str_num: "",
     dob: "",
-    married: false,
+    married: "",
     graduation_year: 0,
     competency: "",
     email: "",
@@ -43,7 +43,7 @@ const AddDoctor = () => {
         phone_num: datas.phone_num,
         str_num: datas.str_num,
         dob: datas.dob,
-        married: datas.married,
+        married: Boolean(datas.married),
         graduation_year: parseInt(datas.graduation_year),
         competency: datas.competency,
         email: datas.email,
@@ -65,6 +65,7 @@ const AddDoctor = () => {
       [name]: value,
     });
   };
+  console.log(datas);
 
   return (
     <>

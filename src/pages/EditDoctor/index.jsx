@@ -21,9 +21,9 @@ const EditDoctor = () => {
     last_education: "",
     exp_year: "",
     phone_num: "",
-    str_num: "",
+    str_num: str_num,
     dob: "",
-    married: false,
+    married: "",
     graduation_year: "",
     competency: "",
     email: "",
@@ -50,7 +50,7 @@ const EditDoctor = () => {
         last_education: datas.last_education,
         exp_year: parseInt(datas.exp_year),
         phone_num: datas.phone_num,
-        str_num: str_num,
+        str_num: datas.str_num,
         dob: datas.dob,
         married: Boolean(datas.married),
         graduation_year: parseInt(datas.graduation_year),
@@ -74,6 +74,7 @@ const EditDoctor = () => {
       [name]: value,
     });
   };
+  console.log(datas);
 
   return (
     <>
@@ -188,7 +189,7 @@ const EditDoctor = () => {
                   <Form.Label>Married</Form.Label>
                   <Form.Select name="married" onChange={handleInput}>
                     <option disabled>Select married</option>
-                    <option value="false">Single</option>
+                    <option value="">Single</option>
                     <option value="true">Married</option>
                   </Form.Select>
                 </Form.Group>
