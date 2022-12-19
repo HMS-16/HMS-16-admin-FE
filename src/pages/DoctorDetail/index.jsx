@@ -102,8 +102,10 @@ const DoctorDetail = () => {
                     <Skeleton className="mt-1 mb-4" />
                   )}
                   <p className="fs-5 fw-bold text-dark">Street Address</p>
-                  {doctor.data.address ? (
-                    <p className="fs-5 text-dark">{doctor.data.address}</p>
+                  {doctor.data.address && doctor.data.district && doctor.data.city && doctor.data.province ? (
+                    <p className="fs-5 text-dark">
+                      {doctor.data.address}, {doctor.data.district}, {doctor.data.city}, {doctor.data.province}
+                    </p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
@@ -145,7 +147,7 @@ const DoctorDetail = () => {
                   )}
                   <p className="fs-5 fw-bold text-dark">Long Experience</p>
                   {doctor.data.exp_year ? (
-                    <p className="fs-5 text-dark">{doctor.data.exp_year}</p>
+                    <p className="fs-5 text-dark">{doctor.data.exp_year} year</p>
                   ) : (
                     <Skeleton className="mt-1 mb-4" />
                   )}
