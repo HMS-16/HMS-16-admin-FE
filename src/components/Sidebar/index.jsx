@@ -35,18 +35,18 @@ const Sidebar = ({ children }) => {
       icon: <MdCalendarToday />,
     },
   ];
-  const toolItem = [
-    {
-      path: "/settings",
-      name: "Settings",
-      icon: <MdSettings />,
-    },
-    {
-      path: "/logout",
-      name: "Logout",
-      icon: <MdLogout />,
-    },
-  ];
+  // const toolItem = [
+  //   {
+  //     path: "/settings",
+  //     name: "Settings",
+  //     icon: <MdSettings />,
+  //   },
+  //   {
+  //     path: "/logout",
+  //     name: "Logout",
+  //     icon: <MdLogout />,
+  //   },
+  // ];
   return (
     <div className="fluid">
       <div style={{ width: isOpen ? "250px" : "70px" }} className="d-flex flex-column sidebar">
@@ -54,7 +54,12 @@ const Sidebar = ({ children }) => {
           <div className="top_section">
             <img
               src={Logo}
-              style={{ display: isOpen ? "flex" : "none", marginLeft: "50px", marginRight: "50px", cursor: "pointer" }}
+              style={{
+                display: isOpen ? "flex" : "none",
+                marginLeft: "50px",
+                marginRight: "50px",
+                cursor: "pointer",
+              }}
               alt="Logo"
               width="100"
               height="100"
@@ -78,14 +83,22 @@ const Sidebar = ({ children }) => {
         </div>
         <div className="mt-auto">
           <hr />
-          {toolItem.map((item, index) => (
-            <Nav.Link href={item.path} key={index} className="link">
-              <div className="icon">{item.icon}</div>
-              <div style={{ display: isOpen ? "block" : "none" }} className="link_text">
-                {item.name}
-              </div>
-            </Nav.Link>
-          ))}
+          <Nav.Link href="/settings" className="link">
+            <div className="icon">
+              <MdSettings />
+            </div>
+            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">
+              Settings
+            </div>
+          </Nav.Link>
+          <Nav.Link className="link" onClick={() => console.log("logout")}>
+            <div className="icon">
+              <MdLogout />
+            </div>
+            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">
+              Logout
+            </div>
+          </Nav.Link>
         </div>
       </div>
       <main>{children}</main>

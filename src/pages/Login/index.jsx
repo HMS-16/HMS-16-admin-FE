@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import style from "./login.module.css";
 import Modal from "../../components/Modal";
