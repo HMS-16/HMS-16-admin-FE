@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Image, Nav } from "react-bootstrap";
-import "react-loading-skeleton/dist/skeleton.css";
 import DoctorImage from "../../assets/images/doctor.png";
 
 const DoctorCard = ({ data }) => {
