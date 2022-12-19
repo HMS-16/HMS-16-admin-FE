@@ -16,14 +16,17 @@ export const getDoctor = createAsyncThunk("fetch/doctors", async () => {
   }
 });
 
-export const getDoctorById = createAsyncThunk("fetch/doctorsById", async (str_num) => {
-  try {
-    const response = await APIDoctor.getDoctorById(str_num);
-    return response;
-  } catch (err) {
-    console.log(err);
+export const getDoctorById = createAsyncThunk(
+  "fetch/doctorsById",
+  async (str_num) => {
+    try {
+      const response = await APIDoctor.getDoctorById(str_num);
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
   }
-});
+);
 
 const doctorsSlice = createSlice({
   name: "doctors",
