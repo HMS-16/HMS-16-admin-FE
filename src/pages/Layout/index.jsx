@@ -4,17 +4,13 @@ import Sidebar from "../../components/Sidebar";
 
 const Layout = ({ children }) => {
   if (children) {
-    return (
-      <>
-        <Sidebar>{children}</Sidebar>
-      </>
-    );
+    return <>{/* <Sidebar>{children}</Sidebar> */}</>;
   }
   return (
     <>
-      <Sidebar>
+      {/* <Sidebar>
         <Outlet />
-      </Sidebar>
+      </Sidebar> */}
     </>
   );
 };
