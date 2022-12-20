@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.search-patient-name {
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid black;
+  width: 320px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.table-patients {
+  font-size: 14px;
+}
+
+.field-data-patients {
+  display: flex;
+  align-items: center;
+}
+
+.box-data-patient {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #29292926;
+  margin-left: 30px;
+  height: fit-content;
+  width: 95%;
+  margin-top: 10px;
+}

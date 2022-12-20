@@ -1,16 +1,22 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddDoctor from "../pages/AddDoctor";
-import Appointment from "../pages/Appointment";
+import AddPatient from "../pages/AddPatient";
+import AppointmentDashboard from "../pages/AppointmentDashboard";
+import ChangeAppointment from "../pages/ChangeAppointment";
+import CreateAppointment from "../pages/CreateAppointment";
 import Dashboard from "../pages/Dashboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
 import DoctorDetail from "../pages/DoctorDetail";
 import EditDoctor from "../pages/EditDoctor";
+import EditPatient from "../pages/EditPatient";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
-import ManagePatient from "../pages/ManagePatient";
 import NoPage from "../pages/NoPage";
 import NurseDashboard from "../pages/NurseDashboard";
+import PatientDashboard from "../pages/PatientDashboard";
+import PatientDetail from "../pages/PatientDetail";
+import PatientHistoryCondition from "../pages/PatientHistoryCondition";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -24,7 +30,21 @@ const Routers = () => {
         </Route>
         <Route path="/" element={<PrivateRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="patient" element={<ManagePatient />} />
+
+          <Route path="patient">
+            <Route index element={<PatientDashboard />} />
+            <Route path="add" element={<AddPatient />} />
+            <Route path="edit" element={<EditPatient />} />
+            <Route path="detail" element={<PatientDetail />} />
+            <Route path="history" element={<PatientHistoryCondition />} />
+          </Route>
+
+          <Route path="appointment">
+            <Route index element={<AppointmentDashboard />} />
+            <Route path="create" element={<CreateAppointment />} />
+            <Route path="change" element={<ChangeAppointment />} />
+          </Route>
+
           <Route path="doctor">
             <Route index element={<DoctorDashboard />} />
             <Route path=":str_num">
@@ -34,7 +54,6 @@ const Routers = () => {
             <Route path="add" element={<AddDoctor />} />
           </Route>
           <Route path="nurse" element={<NurseDashboard />} />
-          <Route path="appointment" element={<Appointment />} />
         </Route>
         <Route path="*" element={<NoPage />} />
       </Routes>

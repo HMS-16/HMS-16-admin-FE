@@ -1,0 +1,38 @@
+.create-appointment-title {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-top: 15px;
+}
+
+.change-appointment-title {
+  display: flex;
+  font-weight: 500;
+}
+
+.button-form-create-appointment {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-cancel-create-appointment {
+  margin-top: 30px !important;
+  margin-bottom: 15px !important;
+  width: 90px !important;
+  height: 30px !important;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: white !important;
+  color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.button-cancel-create-appointment:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}

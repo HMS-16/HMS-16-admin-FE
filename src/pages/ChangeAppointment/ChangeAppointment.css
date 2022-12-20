@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.change-appointment-page {
+  height: 100vh;
+  overflow: auto;
+}
+
+.change-appointment-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40px;
+  font-weight: 700;
+  font-size: 22px;
+}
