@@ -14,7 +14,7 @@ const AddDoctor = () => {
     phone_num: "",
     str_num: "",
     dob: "",
-    married: "",
+    married: 0,
     graduation_year: 0,
     competency: "",
     email: "",
@@ -43,7 +43,7 @@ const AddDoctor = () => {
         phone_num: datas.phone_num,
         str_num: datas.str_num,
         dob: datas.dob,
-        married: Boolean(datas.married),
+        married: Boolean(parseInt(datas.married)),
         graduation_year: parseInt(datas.graduation_year),
         competency: datas.competency,
         email: datas.email,
@@ -65,7 +65,7 @@ const AddDoctor = () => {
       [name]: value,
     });
   };
-  console.log(datas);
+  // console.log(datas);
 
   return (
     <>
@@ -181,8 +181,8 @@ const AddDoctor = () => {
                   <Form.Label>Married</Form.Label>
                   <Form.Select name="married" onChange={handleInput}>
                     <option disabled>Select married</option>
-                    <option value="false">Single</option>
-                    <option value="true">Married</option>
+                    <option value="0">Single</option>
+                    <option value="1">Married</option>
                   </Form.Select>
                 </Form.Group>
                 <Form.Group controlId="graduation_year" className="mb-3">
