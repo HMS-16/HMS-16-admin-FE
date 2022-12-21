@@ -5,7 +5,7 @@ import AddPatient from "../pages/AddPatient";
 import AppointmentDashboard from "../pages/AppointmentDashboard";
 import ChangeAppointment from "../pages/ChangeAppointment";
 import CreateAppointment from "../pages/CreateAppointment";
-import Dashboard from "../pages/Dashboard";
+import Dasboard from "../pages/Dasboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
 import DoctorDetail from "../pages/DoctorDetail";
 import EditDoctor from "../pages/EditDoctor";
@@ -19,6 +19,7 @@ import PatientDetail from "../pages/PatientDetail";
 import PatientHistoryCondition from "../pages/PatientHistoryCondition";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
+import EditAdmin from "../pages/EditAdmin";
 
 const Routers = () => {
   return (
@@ -29,7 +30,8 @@ const Routers = () => {
           <Route path="login" element={<Login />} />
         </Route>
         <Route path="/" element={<PrivateRoute />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dasboard />} />
+          <Route path="editadmin" element={<EditAdmin />} />
 
           <Route path="patient">
             <Route index element={<PatientDashboard />} />

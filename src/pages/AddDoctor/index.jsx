@@ -65,7 +65,6 @@ const AddDoctor = () => {
       [name]: value,
     });
   };
-  // console.log(datas);
 
   return (
     <>

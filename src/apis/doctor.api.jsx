@@ -54,6 +54,24 @@ const APIDoctor = {
       throw new Error(message);
     }
   },
+  async getDoctorSchedule() {
+    try {
+      const response = await config.get(`/doctors/shifts`, { headers });
+      return response.data.data;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async deleteDoctorSchedule(id) {
+    try {
+      const response = await config.delete(`/doctors/shifts/${id}`, { headers });
+      return response.data.data;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
 };
 
 export default APIDoctor;
