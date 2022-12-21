@@ -1,0 +1,22 @@
+.input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.btSave {
+    background-color: #1153B5;
+    border-style:groove;
+    border-color: #1153B5;
+}
+
+.btCancel {
+    color: #1153B5;
+    border-style:groove;
+    border-color: #1153B5;
+}

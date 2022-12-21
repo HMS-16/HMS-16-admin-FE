@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddDoctor from "../pages/AddDoctor";
 import Appointment from "../pages/Appointment";
-import Dashboard from "../pages/Dashboard";
+import Dasboard from "../pages/Dasboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
 import DoctorDetail from "../pages/DoctorDetail";
 import EditDoctor from "../pages/EditDoctor";
@@ -13,6 +13,7 @@ import NoPage from "../pages/NoPage";
 import NurseDashboard from "../pages/NurseDashboard";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
+import EditAdmin from "../pages/EditAdmin";
 
 const Routers = () => {
   return (
@@ -23,7 +24,8 @@ const Routers = () => {
           <Route path="login" element={<Login />} />
         </Route>
         <Route path="/" element={<PrivateRoute />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dasboard />} />
+          <Route path="editadmin" element={<EditAdmin/>}/>
           <Route path="patient" element={<ManagePatient />} />
           <Route path="doctor">
             <Route index element={<DoctorDashboard />} />
