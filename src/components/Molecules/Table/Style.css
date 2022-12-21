@@ -1,0 +1,18 @@
+.bgtable {
+    background-color: #D0E0F7;
+}
+
+.bgprocess {
+    color: #0E4597;
+    background-color: #E3ECFA;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
