@@ -1,0 +1,25 @@
+.DatePicker{
+    position: absolute;
+    top: 100;
+    right: 20;
+    height: 0px;
+    display: block;
+}
+
+.bgwaktu {
+    background-color: #1153B5;
+}
+
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+} */
