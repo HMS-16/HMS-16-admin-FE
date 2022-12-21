@@ -3,6 +3,7 @@ import APIDoctor from "../../../apis/doctor.api";
 
 const initialState = {
   data: [],
+  dataSchedule: [],
   status: "idle",
   error: null,
 };
@@ -52,6 +53,23 @@ export const editDoctor = createAsyncThunk("edit/doctor", async (data) => {
   }
 });
 
+export const getDoctorSchedule = createAsyncThunk("fetch/doctorsSchedule", async () => {
+  try {
+    const response = await APIDoctor.getDoctorSchedule();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+export const deleteDoctorSchedule = createAsyncThunk("delete/doctorSchedule", async (id) => {
+  try {
+    const response = await APIDoctor.deleteDoctorSchedule(id);
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+});
 const doctorsSlice = createSlice({
   name: "doctors",
   initialState,
@@ -109,6 +127,27 @@ const doctorsSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(editDoctor.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(getDoctorSchedule.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getDoctorSchedule.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.dataSchedule = action.payload;
+      })
+      .addCase(getDoctorSchedule.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(deleteDoctorSchedule.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(deleteDoctorSchedule.fulfilled, (state, action) => {
+        state.status = "succeeded";
+      })
+      .addCase(deleteDoctorSchedule.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

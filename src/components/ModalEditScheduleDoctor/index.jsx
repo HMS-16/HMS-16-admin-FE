@@ -1,57 +1,40 @@
-import React from "react";
-import { Button, Col, Form, Modal, Row, Stack } from "react-bootstrap";
-import { MdDelete } from "react-icons/md";
+import React, { useState } from "react";
+import { Button, Col, Modal, Row, Stack } from "react-bootstrap";
+import { mergeData, extractUniqueUsers } from "../../utils";
+import { EditDropdown } from "./EditDropdown";
+import { EditTable } from "./EditTable";
 
 const ModalEditScheduleDoctor = (props) => {
+  const { doctor, schedule } = props;
+  const mergedData = mergeData(doctor, schedule);
+  const users = extractUniqueUsers(mergedData);
+
+  const [selectedUser, setSelectedUser] = useState(users[0]);
+
   return (
     <>
-      <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">Edit Schedule Doctor</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Row>
-              <Col sm="5">
-                <Form.Group className="mb-3" controlId="formDoctorName">
-                  <Form.Label>Doctor</Form.Label>
-                  <Form.Select required>
-                    <option>Select Doctor</option>
-                    <option value="1">Dr. One</option>
-                    <option value="2">Dr. Two</option>
-                    <option value="3">Dr. Three</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col sm="5">
-                <Form.Group className="mb-3" controlId="formScheduleDay">
-                  <Form.Label>Day</Form.Label>
-                  <Form.Control type="text" value="Monday" readOnly />
-                </Form.Group>
-              </Col>
-              <Col sm="5">
-                <Form.Group className="mb-3" controlId="formScheduleShift">
-                  <Form.Label>Shift</Form.Label>
-                  <Form.Control type="text" value="13.00 - 16.00" readOnly />
-                </Form.Group>
-              </Col>
-              <Col sm="2" className="d-flex pt-3 align-items-center justify-content-center">
-                <Button variant="outline-danger" size="md">
-                  <MdDelete /> Delete
-                </Button>
-              </Col>
-            </Row>
-            <Stack direction="horizontal" gap={3} className="d-flex mt-3 justify-content-end">
-              <Button variant="blue" type="submit">
-                Save Changes
-              </Button>
-              <Button variant="outBlue" onClick={props.onHide}>
-                Cancel
-              </Button>
-            </Stack>
-          </Form>
+          <Row>
+            <Col sm="6" className="pb-4">
+              <p className="fs-5">Doctor</p>
+              <EditDropdown users={users} onChange={setSelectedUser} />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm="12">
+              <p className="fs-5">Schedule</p>
+              <EditTable list={mergedData} selectedUser={selectedUser} onHide={props.onHide} />
+            </Col>
+          </Row>
+          <Stack direction="horizontal" className="d-flex mt-3 justify-content-center">
+            <Button variant="blue" onClick={props.onHide}>
+              Save Changes
+            </Button>
+          </Stack>
         </Modal.Body>
       </Modal>
     </>
