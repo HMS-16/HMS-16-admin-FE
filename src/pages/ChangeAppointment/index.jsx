@@ -3,8 +3,20 @@ import { Col, Container, Button, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ModalSaveEditPatient from "../../components/ModalSaveEditPatient";
 import "./ChangeAppointment.css";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAppointmentById } from "../../store/features/appointment/appointmentSlice";
 
 const ChangeAppointment = () => {
+  const { id } = useParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAppointmentById(id));
+  }, [dispatch, id]);
+
   const navigate = useNavigate();
   const patientInformation = () => {
     navigate(`/patient/edit`);

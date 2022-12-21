@@ -17,7 +17,7 @@ const AddPatient = () => {
     pob: "",
     dob: "",
     gender: "Male",
-    married: "false",
+    married: 0,
     blood_type: "A",
     phone_num: "",
     email: "",
@@ -51,7 +51,7 @@ const AddPatient = () => {
         pob: datas.pob,
         dob: datas.dob,
         gender: datas.gender,
-        married: datas.married,
+        married: Boolean(parseInt(datas.married)),
         blood_type: datas.blood_type,
         phone_num: datas.phone_num,
         email: datas.email,
@@ -154,6 +154,7 @@ const AddPatient = () => {
                 <Form.Control
                   name="dob"
                   type="date"
+                  format="mm/dd/yyyy"
                   required
                   value={datas.dob}
                   onChange={handleInput}

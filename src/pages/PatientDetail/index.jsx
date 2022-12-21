@@ -1,6 +1,6 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import { GoCloudDownload } from "react-icons/go";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { MdTimer, MdBloodtype, MdModeEditOutline } from "react-icons/md";
 import { SlChemistry } from "react-icons/sl";
@@ -8,25 +8,37 @@ import { BsCalendar } from "react-icons/bs";
 import { VscPerson } from "react-icons/vsc";
 import { GiWeightScale, GiMedicalThermometer, GiLungs } from "react-icons/gi";
 import { RiHeartPulseFill, RiMedicineBottleFill } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getPatientsById } from "../../store/features/patient/patientSlice";
 import "./PatientDetail.css";
+import { useState } from "react";
+import axiosInstance from "../../config/axiosInstance";
 
 const PatientDetail = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  const patient = useSelector((state) => state.patients);
+
+  const [APIPatient, setAPIPatient] = useState([]);
+  const [APICondition, setAPICondition] = useState([]);
+  const [APIDiagnose, setAPIDiagnose] = useState([]);
 
   useEffect(() => {
-    dispatch(getPatientsById(id));
-  }, [dispatch, id]);
+    axiosInstance.get(`patients/${id}`).then((response) => {
+      setAPIPatient(response.data.data);
+    });
+  }, [id]);
+
+  useEffect(() => {
+    axiosInstance.get(`conditions/${id}`).then((response) => {
+      console.log(response);
+      setAPICondition(response.data.data);
+    });
+  }, [id]);
+
+  useEffect(() => {
+    axiosInstance.get(`diagnoses/${id}`).then((response) => {
+      setAPIDiagnose(response.data.data);
+    });
+  }, [id]);
 
   const navigate = useNavigate();
-
-  const patientHistoryCondition = () => {
-    navigate(`/patient/history`);
-  };
 
   const editDataPatient = () => {
     navigate(`/patient/edit`);
@@ -40,29 +52,30 @@ const PatientDetail = () => {
             Patient Detail
           </h5>
           <div className="button-patient-detail">
-            <button
-              onClick={patientHistoryCondition}
-              className="download-button"
-            >
-              <GoCloudDownload
-                style={{
-                  marginRight: "15px",
-                  height: "19px",
-                  width: "15px",
-                }}
-              />
-              Download
-            </button>
-            <button className="edit-button" onClick={editDataPatient}>
-              <MdModeEditOutline
-                style={{
-                  marginRight: "15px",
-                  height: "19px",
-                  width: "15px",
-                }}
-              />
-              Edit
-            </button>
+            <Link to={`/patient/history/condition/${id}`}>
+              <button className="download-button">
+                <GoCloudDownload
+                  style={{
+                    marginRight: "15px",
+                    height: "19px",
+                    width: "15px",
+                  }}
+                />
+                Download
+              </button>
+            </Link>
+            <Link to={`/patient/edit/${id}`}>
+              <button className="edit-button" onClick={editDataPatient}>
+                <MdModeEditOutline
+                  style={{
+                    marginRight: "15px",
+                    height: "19px",
+                    width: "15px",
+                  }}
+                />
+                Edit
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -76,66 +89,72 @@ const PatientDetail = () => {
               <div className="col-6 col-sm-4 text-start">
                 <p className="label-patient-information">Full Name</p>
                 <span className="field-patient-information">
-                  {patient.data.name}
+                  {APIPatient.name}
                 </span>
 
                 <p className="label-patient-information">Gender</p>
                 <span className="field-patient-information">
-                  {patient.data.gender}
+                  {APIPatient.gender}
                 </span>
 
                 <p className="label-patient-information">Street Address</p>
                 <span className="field-patient-information">
-                  {patient.data.address}
+                  {APIPatient.address}
                 </span>
 
                 <p className="label-patient-information">Phone Number</p>
                 <span className="field-patient-information">
-                  {patient.data.phone_num}
+                  {APIPatient.phone_num}
                 </span>
               </div>
 
-              <div className="col-6 col-sm-4 text-start">
+              <div
+                className="col-6 col-sm-4 text-start"
+                style={{ width: "400px" }}
+              >
                 <p className="label-patient-information">No. Medical Record</p>
                 <span className="field-patient-information">
-                  {patient.data.id}
+                  {APIPatient.id}
                 </span>
 
                 <p className="label-patient-information">Place of Birth</p>
                 <span className="field-patient-information">
-                  {patient.data.pob}
+                  {APIPatient.pob}
                 </span>
 
                 <p className="label-patient-information">City</p>
                 <span className="field-patient-information">
-                  {patient.data.city}
+                  {APIPatient.city}
                 </span>
 
                 <p className="label-patient-information">Email</p>
                 <span className="field-patient-information">
-                  {patient.data.email}
+                  {APIPatient.email}
                 </span>
               </div>
 
-              <div className="col-6 col-sm-4 text-start">
+              <div
+                className="col-6 col-sm-4 text-start"
+                style={{ width: "150px" }}
+              >
                 <p className="label-patient-information">Status</p>
                 <span className="field-patient-information">
-                  {patient.data.status}
+                  {APIPatient.married}
                 </span>
 
                 <p className="label-patient-information">Date of Birth</p>
                 <span className="field-patient-information">
-                  {patient.data.DOB}
+                  {APIPatient.DOB}
                 </span>
 
                 <p className="label-patient-information">Province</p>
                 <span className="field-patient-information">
-                  {patient.data.province}
+                  {APIPatient.province}
                 </span>
 
                 <p className="label-patient-information">Family Contact</p>
                 <span className="field-patient-information">
-                  {patient.data.family_contact}
+                  {APIPatient.family_contact}
                 </span>
               </div>
             </div>
@@ -195,7 +214,9 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Height</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">150 </span>
+                  <span className="number-medical-record">
+                    {APICondition.height}
+                  </span>
                   cm
                 </span>
               </div>
@@ -206,7 +227,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Weight</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">54 </span>kg
+                  <span className="number-medical-record">
+                    {APICondition.weight}
+                  </span>
+                  kg
                 </span>
               </div>
 
@@ -216,7 +240,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Blood Pressure</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">180/180 </span>mmHg
+                  <span className="number-medical-record">
+                    {APICondition.blood_pressure}
+                  </span>
+                  mmHg
                 </span>
               </div>
 
@@ -226,7 +253,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Sugar Analysis</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">110 </span>mg/dL
+                  <span className="number-medical-record">
+                    {APICondition.sugar_analysis}
+                  </span>
+                  mg/dL
                 </span>
               </div>
             </div>
@@ -241,7 +271,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Body Temperature</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">39.5 </span>°C
+                  <span className="number-medical-record">
+                    {APICondition.body_temperature}
+                  </span>
+                  °C
                 </span>
               </div>
 
@@ -251,7 +284,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Heart Rate</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">80 </span>bpm
+                  <span className="number-medical-record">
+                    {APICondition.heart_rate}
+                  </span>
+                  bpm
                 </span>
               </div>
 
@@ -261,7 +297,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Breath Rate</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">16 </span>/rpm
+                  <span className="number-medical-record">
+                    {APICondition.breath_rate}
+                  </span>
+                  /rpm
                 </span>
               </div>
 
@@ -271,7 +310,10 @@ const PatientDetail = () => {
                 <span className="label-medical-record">Cholesterol</span>
                 <br />
                 <span className="field-medical-record">
-                  <span className="number-medical-record">150 </span>/mg/dL
+                  <span className="number-medical-record">
+                    {APICondition.cholesterol}
+                  </span>
+                  /mg/dL
                 </span>
               </div>
             </div>
@@ -281,30 +323,20 @@ const PatientDetail = () => {
             <p className="medical-diagnose-title text-start">
               Medical Diagnose
             </p>
-            <p className="date-diagnose">10/11/2022</p>
-            <p className="medical-diagnose-title">Dr. Baiq N.N</p>
+            <p className="date-diagnose">{APIDiagnose.register_date}</p>
+            <p className="medical-diagnose-title">{APIDiagnose.name}</p>
 
             <div>
               <p className="diagnose-title">Diagnose</p>
               <div className="diagnose text-start">
-                <span>
-                  After examination, the results of the medical record showed
-                  that the patient had symptoms of the disease, namely redness
-                  of the throat, enlarged salivary glands and mild respiratory
-                  distress.
-                </span>
+                <span>{APIDiagnose.diagnose}</span>
               </div>
             </div>
 
             <div>
               <p className="presciption-title">Presciption</p>
               <div className="presciption text-start">
-                <span>
-                  <ul>
-                    <li>Paracetamol 50 mg</li>
-                    <li>Ibuprofen 150 mg</li>
-                  </ul>
-                </span>
+                <span>{APIDiagnose.prescription}</span>
               </div>
             </div>
           </div>

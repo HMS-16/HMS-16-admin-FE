@@ -1,10 +1,37 @@
-import { React, useRef } from "react";
+import { React, useRef, useState, useEffect } from "react";
+import axiosInstance from "../../config/axiosInstance";
 import { AiFillPrinter } from "react-icons/ai";
+import { useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 import Logo from "../../assets/images/Logo.png";
 import "./PatientHistoryCondition.css";
 
 const PatientHistoryCondition = () => {
+  const { id } = useParams();
+
+  const [APIPatient, setAPIPatient] = useState([]);
+  const [APICondition, setAPICondition] = useState([]);
+  const [APIDiagnose, setAPIDiagnose] = useState([]);
+
+  useEffect(() => {
+    axiosInstance.get(`patients/${id}`).then((response) => {
+      setAPIPatient(response.data.data);
+    });
+  }, [id]);
+
+  useEffect(() => {
+    axiosInstance.get(`conditions/${id}`).then((response) => {
+      console.log(response);
+      setAPICondition(response.data.data);
+    });
+  }, [id]);
+
+  useEffect(() => {
+    axiosInstance.get(`diagnoses/${id}`).then((response) => {
+      setAPIDiagnose(response.data.data);
+    });
+  }, [id]);
+
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -46,7 +73,7 @@ const PatientHistoryCondition = () => {
             <table className="minimalistBlack" style={{ width: "100%" }}>
               <thead>
                 <tr>
-                  <th colspan="2">No Medical Record :</th>
+                  <th colspan="2">No Medical Record : {APIPatient.id}</th>
                 </tr>
               </thead>
               <tfoot>
@@ -65,7 +92,7 @@ const PatientHistoryCondition = () => {
               </tfoot>
               <tbody>
                 <tr>
-                  <td>Name :</td>
+                  <td>Name : {APIPatient.name}</td>
                   <td
                     className="text-center"
                     style={{
@@ -78,36 +105,38 @@ const PatientHistoryCondition = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Place, Date of Birth :</td>
-                  <td>Height</td>
+                  <td>
+                    Place, Date of Birth : {APIPatient.pob} {APIPatient.dob}
+                  </td>
+                  <td>Height: {APICondition.height} cm</td>
                 </tr>
                 <tr>
-                  <td>Gender :</td>
-                  <td>Weight :</td>
+                  <td>Gender : {APIPatient.gender}</td>
+                  <td>Weight : {APICondition.weight} kg</td>
                 </tr>
                 <tr>
-                  <td>Address :</td>
-                  <td>Blood Pressure :</td>
+                  <td>Address :{APIPatient.address}</td>
+                  <td>Blood Pressure : {APICondition.blood_pressure} mmHg</td>
                 </tr>
                 <tr>
-                  <td>Blood Type :</td>
-                  <td>Sugar Analysis :</td>
+                  <td>Blood Type : {APIPatient.blood_type} </td>
+                  <td>Sugar Analysis : {APICondition.sugar_analysis} mg/dL</td>
                 </tr>
                 <tr>
-                  <td>Phone Number :</td>
-                  <td>Body Temperature :</td>
+                  <td>Phone Number : {APIPatient.phone_num}</td>
+                  <td>Body Temperature : {APICondition.body_temperature} °C</td>
                 </tr>
                 <tr>
-                  <td>Status :</td>
-                  <td>Heart Rate :</td>
+                  <td>Status : {APIPatient.status}</td>
+                  <td>Heart Rate : {APICondition.heart_rate} bpm</td>
                 </tr>
                 <tr>
-                  <td>Family Name :</td>
-                  <td>Breath Rate :</td>
+                  <td>Family Name : {APIPatient.family_name}</td>
+                  <td>Breath Rate : {APICondition.breath_rate} /rpm</td>
                 </tr>
                 <tr>
-                  <td>Family Contact :</td>
-                  <td>Cholestreol :</td>
+                  <td>Family Contact : {APIPatient.family_contact}</td>
+                  <td>Cholestreol : {APICondition.cholesterol} /mg/dL</td>
                 </tr>
                 <tr>
                   <td colspan="2">Register Date :</td>
@@ -117,12 +146,12 @@ const PatientHistoryCondition = () => {
                 </tr>
                 <tr>
                   <td className="field-large" colspan="2">
-                    Diagnose :
+                    Diagnose : {APIDiagnose.diagnose}
                   </td>
                 </tr>
                 <tr>
                   <td className="field-large" colspan="2">
-                    Presciption :
+                    Presciption : {APIDiagnose.presciption}
                   </td>
                 </tr>
                 <tr>

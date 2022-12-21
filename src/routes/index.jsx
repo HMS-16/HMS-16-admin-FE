@@ -33,10 +33,13 @@ const Routers = () => {
 
           <Route path="patient">
             <Route index element={<PatientDashboard />} />
+            <Route path="edit/:id" element={<EditPatient />} />
+            <Route
+              path="history/condition/:id"
+              element={<PatientHistoryCondition />}
+            />
+            <Route path="detail/:id" element={<PatientDetail />} />
             <Route path="add" element={<AddPatient />} />
-            <Route path="edit" element={<EditPatient />} />
-            <Route path="detail" element={<PatientDetail />} />
-            <Route path="history" element={<PatientHistoryCondition />} />
           </Route>
 
           <Route path="appointment">

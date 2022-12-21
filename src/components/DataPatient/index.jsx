@@ -82,7 +82,7 @@ const DataPatient = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Link to={"/patient/detail"}>
+                  <Link to={`detail/${patients.id}`}>
                     <BsEyeFill
                       style={{
                         color: "#424952",
@@ -92,7 +92,7 @@ const DataPatient = () => {
                     />
                   </Link>
 
-                  <Link to={"/patient/edit"}>
+                  <Link to={`edit/${patients.id}`}>
                     <MdEdit
                       style={{
                         color: "#424952",
