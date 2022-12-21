@@ -4,14 +4,19 @@
   font-family: "Nunito", sans-serif;
 }
 .header {
+  top: 0;
+  display: flex;
   padding: 1em 0em;
   width: 100%;
   height: 4em;
   align-items: center;
+  position: sticky;
+  background-color: #F4F8FD;
+  z-index: 10;
 }
 .navbar {
   width: 90%;
-  height: 3em;
+  /* height: 3em; */
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -23,25 +28,83 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
   margin: 0;
-  padding-left: 35%;
+  padding-left: 30%;
   align-items: center;
 }
-.navbar ul li {
+.navbar ul li{
   text-decoration: none;
   list-style: none;
-  padding-left: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
+  
+}
+.navbar ul li a:hover{
+  border-bottom: 1px solid #0E4597;
+}
+.navbar ul li a {
+  text-decoration: none;
+  list-style: none;
+  padding: 0.5em 2.75em;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  color: #000000;
+  color: #0E4597;
+}
+.activeNavLink {
+  border-bottom: 1px solid #0E4597;
+}
+.linkNavAbout{
+  text-decoration: none;
+  list-style: none;
+  padding: 0em 2.75em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0E4597;
+}
+.linkNavServices {
+  text-decoration: none;
+  list-style: none;
+  padding: 0em 2.75em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0E4597;
+}
+.linkNavActiveHome {
+  text-decoration: none;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0E4597;
+  border-bottom: 1px solid #0E4597;
+}
+.linkNavActiveAbout {
+  text-decoration: none;
+  list-style: none;
+  padding: 0.5em 2.75em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0E4597;
+  border-bottom: 1px solid #0E4597;
+}
+.linkNavActiveServices {
+  text-decoration: none;
+  list-style: none;
+  padding: 0.5em 2.75em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0E4597;
+  border-bottom: 1px solid #0E4597;
 }
 
 .loginBtn {
-  font-size: 1.25rem;
-  font-weight: 700;
-  padding: 0.4em 1.75em;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75em 2.5em;
   text-decoration: none;
   color: #1153b5;
   border: 1px solid #1153b5;
@@ -53,11 +116,11 @@
   transition: 0.1s ease-in-out;
 }
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 5.5%;
+  height: 10vh;
   text-align: center;
   border-radius: 50%;
-  background-image: url(../../assets/images/logohms.png);
+  background-image: url(../../assets/images/logohmsfix.png);
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
