@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.patient-detail-page {
+  height: 100vh;
+  overflow: auto;
+}
+
+.download-button {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  width: 120px;
+  height: 35px;
+  border-radius: 10px !important;
+  background-color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  color: white !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  margin-right: 7px;
+  font-weight: 500 !important;
+}
+
+.download-button:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.edit-button {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  width: 120px;
+  height: 35px;
+  border-radius: 10px !important;
+  padding: 3px !important;
+  background-color: white !important;
+  color: #1153b5 !important;
+  border-color: #1153b5 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  margin-right: 30px !important;
+  font-weight: 500 !important;
+}
+
+.edit-button:hover {
+  background-color: #cdcdcd !important;
+  color: #1153b5 !important;
+}
+
+.button-patient-detail {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px !important;
+}
+
+.patient-information {
+  justify-content: flex-start !important;
+  margin-left: 20px !important;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #29292926;
+  margin-top: 15px;
+  height: 371px;
+  width: 1050px !important;
+  padding: 5px 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700 !important;
+}
+
+.patient-information-title {
+  padding: 10px 10px 10px 10px;
+  font-size: 19px;
+  font-family: "Nunito", sans-serif;
+}
+
+.history-condition-title {
+  padding: 10px 0px 0px 10px;
+  margin-left: 20px !important;
+  font-size: 19px;
+  font-weight: 700 !important;
+  font-family: "Nunito", sans-serif;
+}
+
+.label-patient-information {
+  padding: 10px 0px 0px 20px;
+  font-size: 15px;
+}
+
+.field-patient-information {
+  padding: 0px 10px 0px 20px;
+  font-weight: 500 !important;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.appointment-schedule {
+  justify-content: flex-start !important;
+  margin-left: 20px !important;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #29292926;
+  margin-top: 30px;
+  height: 200px;
+  width: 1050px !important;
+  padding: 5px 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700 !important;
+}
+
+.icon-patient-detail {
+  height: 39px;
+  width: 30px;
+  color: #608cce;
+  margin-bottom: 10px;
+}
+
+.label-appointment-schedule {
+  font-size: 16px;
+}
+
+.field-appointment-schedule {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.medical-record {
+  justify-content: flex-start !important;
+  margin-left: 20px !important;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #29292926;
+  margin-top: 40px;
+  height: 320px;
+  width: 1050px !important;
+  padding: 5px 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700 !important;
+}
+
+.icons-medical-record {
+  height: 20px;
+  width: 20px;
+  color: #608cce;
+  margin-bottom: 10px;
+}
+
+.field-medical-record {
+  font-weight: 500;
+}
+
+.label-medical-record {
+  margin-top: 5px;
+}
+
+.number-medical-record {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.option-date {
+  height: 30px;
+  margin-right: 14px;
+  padding: 16px 16px 16px 10px;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  width: 350px;
+  margin-bottom: 15px;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.select-history {
+  height: 40px !important;
+  margin-left: 20px !important;
+  border: 1px solid #cdcdcd !important;
+  border-radius: 10px !important;
+  width: 300px !important;
+  margin-bottom: 10px !important;
+  color: black !important;
+}
+
+.diagnose {
+  background-color: white;
+  padding: 0px 10px 0px 5px !important;
+  border-radius: 7px;
+  border-style: groove;
+  border-color: 1px "grey" !important;
+  width: 1000px !important;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300 !important;
+  margin-bottom: 10px;
+  margin-left: 20px !important;
+}
+
+.diagnose-title {
+  padding: 0px 10px 0px 20px !important;
+}
+
+.presciption-title {
+  padding: 0px 10px 0px 20px !important;
+}
+
+.medical-diagnose-title {
+  margin-top: 15px;
+  padding: 10px 10px 10px 10px;
+  font-size: 19px;
+  padding: 0px 10px 0px 20px !important;
+}
+
+.presciption {
+  background-color: white;
+  padding: 0px 10px 0px 5px !important;
+  border-radius: 7px;
+  border-style: groove;
+  border-color: 1px "grey" !important;
+  width: 1000px !important;
+  height: 55px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300 !important;
+  margin-bottom: 10px;
+  margin-left: 20px !important;
+}
+
+.date-diagnose {
+  padding: 0px 10px 0px 20px;
+  font-weight: 500 !important;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.medical-diagnose {
+  justify-content: start !important;
+  margin-left: 20px !important;
+  margin-top: 35px !important;
+  margin-bottom: 50px !important;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #29292926;
+  margin-top: 15px;
+  height: 371px;
+  width: 1050px !important;
+  padding: 5px 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700 !important;
+}

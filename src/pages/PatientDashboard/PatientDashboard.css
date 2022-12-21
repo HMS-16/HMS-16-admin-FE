@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.patientPage {
+  height: 100vh;
+  overflow: auto;
+}
+
+.button-add-patient {
+  background-color: #0e4597 !important;
+  border-style: none !important;
+  width: 170px !important;
+  height: 40px !important;
+  padding: 3px 10px 0px 0px !important;
+  margin-top: 20px !important;
+  margin-left: 20px !important;
+  font-weight: 500 !important;
+  font-family: "Nunito", sans-serif !important;
+}
+
+.button-add-patient:hover {
+  background-color: #d0e0f7 !important;
+  color: black !important;
+}
+
+.button-patient {
+  display: flex !important;
+  justify-content: flex-end !important;
+  padding: 0px 35px 5px;
+}

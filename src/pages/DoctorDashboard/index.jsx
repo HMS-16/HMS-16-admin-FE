@@ -6,7 +6,6 @@ import { FreeMode } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctor } from "../../store/features/doctor/doctorsSlice";
 import DoctorCard from "../../components/DoctorCard";
-import DoctorTable from "../../components/DoctorTable";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import DoctorImage from "../../assets/images/doctor.png";
@@ -14,6 +13,7 @@ import "./DoctorDashboard.css";
 import "swiper/css";
 import ModalAddScheduleDoctor from "../../components/ModalAddScheduleDoctor";
 import ModalEditScheduleDoctor from "../../components/ModalEditScheduleDoctor";
+import DoctorScheduleTable from "../../components/DoctorScheduleTable";
 
 const DoctorDashboard = () => {
   const dispatch = useDispatch();
@@ -116,7 +116,7 @@ const DoctorDashboard = () => {
               </Button>
               <ModalEditScheduleDoctor show={editModalShow} onHide={() => setEditModalShow(false)} />
             </Stack>
-            <DoctorTable />
+            <DoctorScheduleTable />
           </div>
         </div>
       </div>
