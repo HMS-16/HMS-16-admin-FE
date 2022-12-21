@@ -22,7 +22,7 @@ const EditPatient = () => {
 
   const navigate = useNavigate();
   const changeAppointment = () => {
-    navigate(`/appointment`);
+    navigate(`/appointment/change`);
   };
 
   const patientInformation = () => {

@@ -20,7 +20,10 @@ const Navbar = ({ section1Ref, section2Ref, section3Ref }) => {
     console.log(scrollY);
 
     // Check the scroll position against the position of each section
-    if (scrollY >= section1Ref.current.offsetTop - 80 && scrollY < section2Ref.current.offsetTop - 50) {
+    if (
+      scrollY >= section1Ref.current.offsetTop - 80 &&
+      scrollY < section2Ref.current.offsetTop - 50
+    ) {
       setActiveLink(1);
     } else if (
       scrollY >= section2Ref.current.offsetTop - 200 &&
@@ -40,17 +43,26 @@ const Navbar = ({ section1Ref, section2Ref, section3Ref }) => {
           <div className={style.logo}></div>
           <ul>
             <li>
-              <a className={activeLink === 1 ? style.activeNavLink : ""} href="#section1">
+              <a
+                className={activeLink === 1 ? style.activeNavLink : ""}
+                href="#section1"
+              >
                 Home
               </a>
             </li>
             <li>
-              <a className={activeLink === 2 ? style.activeNavLink : ""} href="#section2">
+              <a
+                className={activeLink === 2 ? style.activeNavLink : ""}
+                href="#section2"
+              >
                 About Us
               </a>
             </li>
             <li>
-              <a className={activeLink === 3 ? style.activeNavLink : ""} href="#section3">
+              <a
+                className={activeLink === 3 ? style.activeNavLink : ""}
+                href="#section3"
+              >
                 Services
               </a>
             </li>
