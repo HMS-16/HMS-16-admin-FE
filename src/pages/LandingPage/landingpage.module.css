@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap");
 
+html{
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Nunito", sans-serif;
+  background-color: #F4F8FD !important;
 }
 .overlay {
   position: absolute;
@@ -21,13 +25,6 @@ body {
   background-color: rgba(217, 217, 217, 0.54);
   backdrop-filter: blur(5px);
 }
-/* .imageBg {
-  background-image: url(../images/landingbg2.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 90vh;
-} */
 .imageMdl {
   background-image: url(../../assets/images/landingbg2.png);
   background-repeat: no-repeat;
@@ -37,10 +34,9 @@ body {
 }
 .landingLogin {
   width: 85%;
-  height: 80vh;
+  height: 120vh;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 4em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -49,6 +45,7 @@ body {
 .heroInfo {
   width: 40%;
   height: 80%;
+  margin-top: 9em;
 }
 .heroInfo h1 {
   font-size: 4rem;
@@ -63,7 +60,6 @@ body {
   font-weight: 400;
   text-align: left;
   color: #000000;
-  /* margin-top: 3.25em; */
   margin-bottom: 1em;
 }
 .navigatingBtn {
@@ -92,10 +88,10 @@ body {
   background-image: url("../../assets/images/login-vector.png");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-attachment: fixed; */
   background-position: center;
   width: 40%;
   height: 60vh;
+  margin-top: 9em;
 }
 .navigatingBtn button {
   padding: 0.75em 1.25em;
@@ -105,7 +101,8 @@ body {
   font-size: 1rem;
 }
 .aboutUs {
-  padding-top: 1em;
+  padding-top: 15em;
+  margin-bottom: 15em;
 }
 .aboutUs div {
   width: 75%;
@@ -117,12 +114,8 @@ body {
   font-weight: 700;
   margin-bottom: 0.5em;
 }
-.aboutUs div p {
-  margin-bottom: 4em;
-}
 .ourService {
-  background-color: #e3ecfa;
-  padding-top: 1.5em;
+  padding-top: 6em;
 }
 .ourService h1 {
   font-size: 2.5rem;
@@ -202,7 +195,7 @@ body {
   height: 50vh;
 }
 .features {
-  padding-top: 2em;
+  padding-top: 8em;
 }
 .featuresTitle h1 {
   font-size: 2.5rem;
@@ -344,12 +337,15 @@ body {
   color: #ffffff;
 }
 .footer {
-  width: 100%;
+  width: 90%;
   padding-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  border-top: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
 }
 .footer ul {
   list-style: none;
@@ -382,70 +378,26 @@ body {
 .textWrapper p {
   margin: 0;
 }
-.loginLayout {
+.contactFooter ul {
   display: flex;
   flex-direction: row;
-  width: 100%;
-}
-.heroInfoLogin {
-  background-color: #1153b5;
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding-left: 0;
 }
-.heroInfoLogin h3 {
-  color: #ffffff;
-  width: 70%;
-  margin-top: 1em;
+.logoFooter{
+  border-right: 1px solid #222222;
 }
-.loginVector {
-  background-image: url("../../assets/images/login-vector.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 80%;
-  height: 50vh;
+.contactFooter ul li{
+  margin: 0;
+  padding: 0;
 }
-.formLayout {
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+.contactFooter ul li:last-child > a{
+  padding-left: 2em;
+  text-decoration: none;
+  color: #0E4597;
 }
-.formLayout h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 1em;
-}
-.logoLogin {
-  background-image: url("../../assets/images/Mediclinic.png");
-  width: 15%;
-  height: 15vh;
-  background-size: cover;
-}
-.formLoginBox {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-}
-.formLoginBox label {
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 2em;
-}
-.formLoginBox input {
-  padding: 0.6em 1.5em;
-  font-size: 1rem;
-  box-sizing: border-box;
-  border-radius: 0.75em;
-  border: 1px solid #cdcdcd;
-}
-.formLoginBox input:focus {
-  outline: none;
-  border: 1px solid #1153b5;
+.detailFooter ul{
+  padding-left: 0;
+  margin: 0;
 }
