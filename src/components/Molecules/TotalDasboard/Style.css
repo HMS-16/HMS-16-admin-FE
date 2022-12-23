@@ -1,7 +1,11 @@
-.fontBold{
-    font-weight: bold;
+.fontBold {
+  font-weight: bold;
 }
 
 .icontotal {
-    background-color: #0E4597;
+  background-color: #0e4597;
+}
+
+.rounded-5 {
+  margin-left: 27px !important;
 }

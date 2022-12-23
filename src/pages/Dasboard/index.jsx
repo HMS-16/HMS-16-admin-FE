@@ -1,20 +1,17 @@
 import React from "react";
 import "./Style.css";
-import ChartDasboard from '../../components/Molecules/Chart/ChartDasboard'
-import TotalDasboard from '../../components/Molecules/TotalDasboard/TotalDasboard'
-import TableDasboard from '../../components/Molecules/Table/TableDasboard'
-
-import Navbar from "../../components/Molecules/Navbar/Navbar";
+import DataPatient from "../../components/DataPatient/index";
+import ChartDasboard from "../../components/Molecules/Chart/ChartDasboard";
+import TotalDasboard from "../../components/Molecules/TotalDasboard/TotalDasboard";
 
 const Dashboard = () => {
-  
-
   return (
-    <div className="position-absolute" style={{width:'100%'}} >
-      <Navbar name="Dashboard" link={'/editadmin'}/>
+    <div style={{ width: "100%", height: "100vh", overflow: "auto" }}>
+      {/* <Navbar name="Dashboard" link={"/editadmin"} /> */}
       <TotalDasboard />
       <ChartDasboard />
-      <TableDasboard />
+      <p className="latest-patient-title">Latest Patient</p>
+      <DataPatient />
     </div>
   );
 };

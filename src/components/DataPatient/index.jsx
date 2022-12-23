@@ -57,6 +57,8 @@ const DataPatient = () => {
                           backgroundColor: "#E3ECFA",
                           borderRadius: "10px",
                           color: "#0E4597",
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                       >
                         {patients.status}
@@ -67,6 +69,8 @@ const DataPatient = () => {
                           backgroundColor: "#B8DDB4",
                           color: "#228018",
                           borderRadius: "10px",
+                          display: "flex",
+                          justifyContent: "center",
                         }}
                       >
                         {patients.status}
@@ -86,7 +90,6 @@ const DataPatient = () => {
                     <BsEyeFill
                       style={{
                         color: "#424952",
-
                         marginRight: "10px",
                       }}
                     />

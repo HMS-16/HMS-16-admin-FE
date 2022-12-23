@@ -78,28 +78,29 @@ const ChartDasboard = () => {
     setin1(false);
     setin2(true);
   };
-  const handleCOndition = ()=>{
-    if(valueval === 'day'){
-      setvalueval('mont')
-    } else if(valueval === 'mont'){
-      setvalueval('year')
+  const handleCOndition = () => {
+    if (valueval === "day") {
+      setvalueval("mont");
+    } else if (valueval === "mont") {
+      setvalueval("year");
     } else {
-      setvalueval('day')
+      setvalueval("day");
     }
-  }
-  const [mencoba, setMencoba] = useState()
-  const contion = localStorage.getItem('condition')
-  
+  };
+  const [mencoba, setMencoba] = useState();
+  const contion = localStorage.getItem("condition");
 
-  useEffect(()=>{
+  useEffect(() => {
     setTimeout(() => {
-      handleCOndition()
-    }, 400)
-  },[contion])
-
+      handleCOndition();
+    }, 400);
+  }, [contion]);
 
   return (
-    <div className="shadow  p-3 mb-5 bg-body rounded-5 mt-5 justify-content-between px-5 rounded-3">
+    <div
+      className="shadow  p-3 mb-5 bg-body rounded-5 mt-5 justify-content-between px-5 rounded-3"
+      style={{ width: "1050px" }}
+    >
       <div className="text-start mb-5">
         <h1 className="fw-bold ">Patient Statistics</h1>
       </div>
@@ -108,10 +109,21 @@ const ChartDasboard = () => {
           <div className="d-flex col-12 justify-content-between rounded-2">
             <div>
               <div className="fromto d-flex">
-              <div className="from"> <b>From</b> </div> 
-              <div> <b>To</b> </div>
+                <div className="from">
+                  {" "}
+                  <b>From</b>{" "}
+                </div>
+                <div>
+                  {" "}
+                  <b>To</b>{" "}
+                </div>
               </div>
-              <input className="date1" type="date" value={startDate} onChange={inputdatestart} />
+              <input
+                className="date1"
+                type="date"
+                value={startDate}
+                onChange={inputdatestart}
+              />
               <input type="date" value={endDate} onChange={inputdateEnd} />
             </div>
             <div className="d-flex">
@@ -144,9 +156,9 @@ const ChartDasboard = () => {
               </p>
             </div>
           </div>
-            <div style={{minWidth : '100vh'}}>
-              <CanvasJSChart  options = {options} />
-            </div>
+          <div style={{ minWidth: "100vh" }}>
+            <CanvasJSChart options={options} />
+          </div>
         </div>
         {/* total patien today */}
         <div className="bg-primary position-relative col-2 p-4 align-items-center d-flex flex-column justify-content-between my-5 shadow p-3 mb-5 bg-body rounded-4 py-5">
